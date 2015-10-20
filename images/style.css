@@ -72,17 +72,18 @@ form {
 }
 
 input.search { 
-	width: 199px; 
-	border: none;
-	background: url(input.gif); 
-	padding: 4px; 
+	width: 20%;/*width: 199px; */
+	/*border: none;*/
+	/*background: url(input.gif); */
+	padding: 0.3%;/*padding: 4px; */
+	
 }
 
 input.login { 
-	width: 150px;
-	border: none; 
-	background: url(logininput.gif); 
-	padding: 4px; 
+	width: 50%;/*width: 150px;*/
+	/*border: none; */
+	/*background: url(logininput.gif); */
+	padding: 0.5%;/*padding: 4px; */
 }
 
 /* layout
@@ -94,13 +95,15 @@ input.login {
 }
 
 .header { 
-	height: 45px; 
+	height: 28px; 
+	border-bottom: 1px solid #eee;
 }
 
-.logo {
+/*.logo {
+	width: 70%;
 	text-align:left;
 	font-size:1em;
-}
+}*/
 
 .top_info {
 	float: right;
@@ -110,21 +113,21 @@ input.login {
 }
 
 	.top_info_left {
-		width: 240px;
+		width: 50%;/*width: 240px;*/
 		float: left;
 	}
 
 	.top_info_right {
 		float: right;
-		width: 290px;
+		width: 25%;/*width: 290px;*/
 		padding: 0 0 0 35px;
 		border-left: 1px solid #eee;
 	}
 
-.slogan {
+/*.slogan {
 	font-size: 0.9em;
 	width: 160px;
-}
+}*/
 
 
 .bar { 
@@ -157,19 +160,20 @@ input.login {
 	} 
 
 .search_field { 
-	background: #DCF2B8 url(barbg.gif) no-repeat; 
+	background: #9EC068; /*<- green*//*background: #DCF2B8 url(barbg.gif) no-repeat; */
 	color: #000;
-	border-top: 1px solid #9EC068;
-	border-bottom: 1px solid #9EC068;
+	border-top: 1px solid #799350;
+	border-bottom: 1px solid #799350;
 	clear: both;
 	text-align: center; 
 	padding: 10px 0 5px 0;
 }
 
 .subheader {
+	height: 120px;
 	margin: 3px 0 10px 0;
 	padding: 8px;
-	background: #f4f4f4 url(subheaderbg.gif) no-repeat;
+	background: #F4F4F4; /*<- lightgrey*//*background: #f4f4f4 url(subheaderbg.gif) no-repeat;*/
 	color: #808080;
 	border-bottom: 1px solid #ccc;
 }
@@ -257,7 +261,7 @@ input.login {
 	.right_login {
 		padding: 10px;
 		margin: 0 0 10px 0;
-		background: #A9D4F2;
+		background: #FFD20A; /*<- yellow*//*background: #A9D4F2;*/
 		color: #246088;
 		border-top: 1px solid #4A8EBC;
 		border-bottom: 1px solid #4A8EBC;
