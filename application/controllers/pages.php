@@ -20,6 +20,7 @@ class Pages extends CI_Controller {
 		$this->load->model('pages_model');
 		$data['menu'] = $this->pages_model->get_menu();
 		$data['page_info'] = $this->pages_model->get_page_info($title);
+		$data['categories'] = $this->pages_model->get_cat();
 		/*$name = "home";*/
         $this->template->get_view($data);
 	}

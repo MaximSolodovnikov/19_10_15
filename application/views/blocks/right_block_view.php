@@ -1,4 +1,14 @@
 <div class="right">
+    <p class="latest_news">Categories</p>
+    <div class="right_articles">
+		
+		<?php foreach($categories as $item): ?>
+			<a href=""><b><?=$item['title'];?></b></a><br /> 
+		<?php endforeach; ?>
+		
+    </div>
+</div>
+<div class="right">
     <p class="latest_news">Latest news</p>
     <div class="right_articles">
         <a href=""><img src="<?=base_url();?>images/articles/nature_60x60_1.jpg" alt="" title="" class="image" /></a><b>Lorem ipsum dolor sit amet</b><br /> 

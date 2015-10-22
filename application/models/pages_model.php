@@ -15,4 +15,10 @@ class Pages_model extends CI_Model {
 		$query = $this->db->get('menu');
 		return $query->row_array();
 	}
+	
+	function get_cat() {
+		
+		$query = $this->db->get('categories');
+		return $query->result_array();
+	}
 }

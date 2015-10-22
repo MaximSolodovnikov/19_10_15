@@ -20,7 +20,7 @@ class Template {
         $CI->load->view('blocks/search_view');
         $CI->load->view('blocks/slider_view');
         $CI->load->view('blocks/content_view');
-        $CI->load->view('blocks/right_block_view');
+        $CI->load->view('blocks/right_block_view', $data);
         $CI->load->view('blocks/pagination_view');
         $CI->load->view('blocks/footer_view');
     }
