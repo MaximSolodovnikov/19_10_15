@@ -1,9 +1,9 @@
 <div class="right">
     <p class="latest_news">Categories</p>
-    <div class="right_articles">
+    <div class="right_categories">
 		
 		<?php foreach($categories as $item): ?>
-			<a href=""><b><?=$item['title'];?></b></a><br /> 
+			<a href=""><?=$item['title'];?></a><br /> 
 		<?php endforeach; ?>
 		
     </div>

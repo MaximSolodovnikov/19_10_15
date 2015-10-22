@@ -218,6 +218,24 @@ body {
 	.right_articles:hover {
 		border: 1px solid #ccc;
 	}
+	
+/*categiries*/	
+	.right_categories {
+		border: 1px solid #eee;
+		margin: 0 0 10px 0;
+		text-align: center;
+	}
+	
+	.right_categories a{
+		font-weight:bold;
+		margin: 5xp auto;
+		text-decoration: none;
+
+	}
+	
+	.right_categories a:hover {
+		text-decoration: none;
+	}
 		
 .image {
 	float: left;

@@ -8,20 +8,17 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Pages extends CI_Controller {
-    
-    function index() {
-        
-		redirect(base_url());
-    }
+class Articles extends CI_Controller {
 	
-	function page($title) {
+	function index() {
 		
 		$this->load->model('pages_model');
+		$this->load->model('articles_model');
 		$data['menu'] = $this->pages_model->get_menu();
-		$data['page_info'] = $this->pages_model->get_page_info($title);
+		$data['page_info'] = $this->pages_model->get_page_info('articles');
 		$data['categories'] = $this->pages_model->get_cat();
-		$name = "home";
+		$data['articles'] = $this->articles_model->get_all_articles();
+		$name = "articles";
         $this->template->get_view($data, $name);
 	}
 }

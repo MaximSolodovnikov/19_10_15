@@ -10,16 +10,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Template {
     
-    function get_view($data) {
+    function get_view($data, $name) {
         
         $CI =& get_instance();
         
         $CI->load->view('blocks/pre_header_view', $data);
-        $CI->load->view('blocks/header_view');
+        $CI->load->view('blocks/header_view', $data);
         $CI->load->view('blocks/menu_view', $data);
         $CI->load->view('blocks/search_view');
         $CI->load->view('blocks/slider_view');
-        $CI->load->view('blocks/content_view');
+        $CI->load->view($name . '_view', $data);
         $CI->load->view('blocks/right_block_view', $data);
         $CI->load->view('blocks/pagination_view');
         $CI->load->view('blocks/footer_view');
