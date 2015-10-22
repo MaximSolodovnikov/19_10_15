@@ -11,9 +11,30 @@
             </div>
         </div>
         <div class="top_info_left">
-            <p>Today is: <b>19th October, 2015</b>&nbsp;&nbsp;&nbsp;&nbsp;
-            <a href="" class="active">Russian</a>&nbsp;|&nbsp;<a href="">Ukrainian</a></p>
-            <p><a class="title" href="#" title="My fruit and vegetable garden">Мой сад и огород</a><p/>
+            <p>Сегодня: <b>
+			<?php 
+			$months = array(
+				"Jan" => "января",
+				"Feb" => "февраля",
+				"Mar" => "марта",
+				"Apr" => "апреля",
+				"May" => "мая",
+				"Jun" => "июня",
+				"Jul" => "июля",
+				"Aug" => "августа",
+				"Sep" => "сентября",
+				"Oct" => "октября",
+				"Nov" => "ноября",
+				"Dec" => "декабря"
+			);
+			
+			$month = date('M');
+
+			echo date('d ' . $months[$month] . ' Y');?>
+			
+			</b>&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="" class="active">Русский</a>&nbsp;|&nbsp;<a href="">Украинский</a></p>
+            <p><a class="title" href="#" title="Мой сад и огород">Мой сад и огород</a><p/>
         </div>
     </div>
 </div>

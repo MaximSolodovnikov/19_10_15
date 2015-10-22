@@ -12,7 +12,16 @@ class Pages extends CI_Controller {
     
     function index() {
         
-        $this->template->get_view();
+		redirect(base_url());
     } 
+	
+	function page($title) {
+		
+		$this->load->model('pages_model');
+		$data['menu'] = $this->pages_model->get_menu();
+		$data['page_info'] = $this->pages_model->get_page_info($title);
+		/*$name = "home";*/
+        $this->template->get_view($data);
+	}
 }
 
