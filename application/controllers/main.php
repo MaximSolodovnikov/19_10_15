@@ -18,4 +18,12 @@ class Main extends CI_Controller {
         $name = 'home';
         $this->template->get_view($data, $name);   
     }
+    
+    function get_last_articles() {
+        
+        $this->db->order_by('id', 'desc');
+        $this->db->limit('5');
+        $query = $this->db->get('articles');
+        return $query->result_array();
+    }
 }
