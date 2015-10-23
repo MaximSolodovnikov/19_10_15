@@ -1,7 +1,7 @@
 <div class="bar">
     <ul>
-		<?php foreach($menu as $item): ?>
-			<li><a href="<?=base_url();?>index.php/pages/page/<?=$item['title_url']; ?>" accesskey=""><?=$item['title']; ?></a></li>
-		<?php endforeach; ?>
+        <li><a href="<?=base_url();?>" <?php if($page_info['title_url'] == 'home') echo "class = 'active'";?>accesskey="">Главная</a></li>
+        <li><a href="<?=base_url();?>index.php/articles/" <?php if($page_info['title_url'] == 'articles') echo "class = 'active'";?>accesskey="">Статьи</a></li>
+        <li><a href="<?=base_url();?>index.php/gallery/" <?php if($page_info['title_url'] == 'gallery') echo "class = 'active'";?>accesskey="">Галерея</a></li>
     </ul>
 </div>

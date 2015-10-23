@@ -16,6 +16,8 @@ class Pages_model extends CI_Model {
 		return $query->row_array();
 	}
 	
+        
+        
 	function get_cat() {
 		
 		$query = $this->db->get('categories');
