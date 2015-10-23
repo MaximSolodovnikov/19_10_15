@@ -3,9 +3,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Articles_model extends CI_Model {
 	
-    function get_all_articles() {
+    function get_all_articles($num, $offset) {
 
-        $query = $this->db->get('articles');
+        $query = $this->db->get('articles', $num, $offset);
         return $query->result_array();
     }
     
@@ -17,7 +17,7 @@ class Articles_model extends CI_Model {
         return $query->result_array();
     }
     
-    /*Выбор конкретной статьи*/
+    /*Вывод конкретной статьи*/
     function get_article($title) {
         
         $this->db->where('title_url', $title);

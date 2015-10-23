@@ -17,7 +17,7 @@ body {
 .header { 
 	border-bottom: 1px solid #eee;
 }
-
+/*-----------------*/
 .title {
 	font-family: 'Comfortaa', cursive;
 	font-style: italic;
@@ -31,6 +31,15 @@ body {
 	font-size: 2.7em;
 	color: #5CB85C;
 }
+/*-----Заголовок для конкретной статьи-------*/
+
+.title_particular_article {
+	font-size: 1.5em;
+	font-weight: bold;
+        color: #5CB85C;
+}
+
+/*-----------------*/
 
 .title_article {
 	text-decoration: none;
@@ -41,6 +50,18 @@ body {
 .title_article:hover {
 	text-decoration: none;
 	font-size: 1.5em;
+	color: #5CB85C;
+}
+/*-----------------*/
+.title_latest_art {
+	text-decoration: none;
+	font-size: 1.1em;
+	font-weight: bold;
+}
+
+.title_latest_art:hover {
+	text-decoration: none;
+	font-size: 1.1em;
 	color: #5CB85C;
 }
 
@@ -200,6 +221,11 @@ body {
             border: 1px solid #eee;
             padding: 8px;	
             margin: 0 0 10px 0;
+
+    }
+    
+        .right_articles p{
+
             text-align: justify;
     }
 

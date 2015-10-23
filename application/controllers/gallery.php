@@ -16,7 +16,7 @@ class Gallery extends CI_Controller {
         $data['menu'] = $this->pages_model->get_menu();
         $data['page_info'] = $this->pages_model->get_page_info('gallery');
         $data['categories'] = $this->pages_model->get_cat();
-
+        $data['latest_articles'] = $this->pages_model->get_last_articles();
         $name = 'gallery';
         $this->template->get_view($data, $name);
     }

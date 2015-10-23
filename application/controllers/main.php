@@ -11,19 +11,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Main extends CI_Controller {
     
     function index() {
-
+        
         $data['menu'] = $this->pages_model->get_menu();
         $data['page_info'] = $this->pages_model->get_page_info('home');
         $data['categories'] = $this->pages_model->get_cat();
+        $data['latest_articles'] = $this->pages_model->get_last_articles();
         $name = 'home';
         $this->template->get_view($data, $name);   
-    }
-    
-    function get_last_articles() {
-        
-        $this->db->order_by('id', 'desc');
-        $this->db->limit('5');
-        $query = $this->db->get('articles');
-        return $query->result_array();
     }
 }

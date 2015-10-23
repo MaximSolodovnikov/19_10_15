@@ -17,8 +17,8 @@ class Article extends CI_Controller {
         $data['menu'] = $this->pages_model->get_menu();
         $data['page_info'] = $this->articles_model->get_article($title);
         $data['categories'] = $this->pages_model->get_cat();
+        $data['latest_articles'] = $this->pages_model->get_last_articles();
         $name = 'article';
-        
         $this->template->get_view($data, $name);
     }
 }

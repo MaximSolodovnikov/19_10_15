@@ -21,4 +21,13 @@ class Pages_model extends CI_Model {
         $query = $this->db->get('categories');
         return $query->result_array();
     }
+    
+     /*Вывод последних 5 статей*/
+    function get_last_articles() {
+        
+        $this->db->order_by('id', 'desc');
+        $this->db->limit('5');
+        $query = $this->db->get('articles');
+        return $query->result_array();
+    }
 }
