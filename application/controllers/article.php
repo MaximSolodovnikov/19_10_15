@@ -12,7 +12,8 @@ class Article extends CI_Controller {
 
     /*Просмотр конкретной статьи*/
     function view($title) {
-
+        
+        $this->load->library('pagination');
         $this->load->model('articles_model');
         $data['menu'] = $this->pages_model->get_menu();
         $data['page_info'] = $this->articles_model->get_article($title);

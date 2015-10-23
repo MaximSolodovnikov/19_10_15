@@ -39,8 +39,15 @@ body {
         color: #5CB85C;
 }
 
-/*-----------------*/
+/*-----Заголовок комментариев-------*/
 
+.title_comment {
+        text-align: center;
+	font-size: 1.5em;
+	font-weight: bold;
+        color: #47ADCB;
+}
+/*-----------------*/
 .title_article {
 	text-decoration: none;
 	font-size: 1.5em;
