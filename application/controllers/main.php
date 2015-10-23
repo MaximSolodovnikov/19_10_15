@@ -8,24 +8,14 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Pages extends CI_Controller {
+class Main extends CI_Controller {
     
     function index() {
-        
-	redirect(base_url());
-    }
-	
-    function page() {
 
         $data['menu'] = $this->pages_model->get_menu();
         $data['page_info'] = $this->pages_model->get_page_info('home');
         $data['categories'] = $this->pages_model->get_cat();
         $name = 'home';
-        $this->template->get_view($data, $name);
-    }
-    
-    function contacts() {
-        
-        
+        $this->template->get_view($data, $name);   
     }
 }

@@ -10,15 +10,27 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Articles extends CI_Controller {
 	
-	function index() {
-		
-            $this->load->model('articles_model');
-            $data['menu'] = $this->pages_model->get_menu();
-            $data['page_info'] = $this->pages_model->get_page_info('articles');
-            $data['categories'] = $this->pages_model->get_cat();
-            $data['articles'] = $this->articles_model->get_all_articles();
-            $name = 'articles';
-            $this->template->get_view($data, $name);
-	}
-}
+    function index() {
 
+        $this->load->model('articles_model');
+        $data['menu'] = $this->pages_model->get_menu();
+        $data['page_info'] = $this->pages_model->get_page_info('articles');
+        $data['categories'] = $this->pages_model->get_cat();
+        $data['articles'] = $this->articles_model->get_all_articles();
+        $name = 'articles';
+        $this->template->get_view($data, $name);
+    }
+
+    /*Выбор статьи по категориям (по месяцам)*/
+
+    function cat($cat) {
+
+        $this->load->model('articles_model');
+        $data['menu'] = $this->pages_model->get_menu();
+        $data['page_info'] = $this->pages_model->get_page_info('articles');
+        $data['categories'] = $this->pages_model->get_cat();
+        $data['articles'] = $this->articles_model->get_cat_articles($cat);
+        $name = 'articles';
+        $this->template->get_view($data, $name);
+    }
+}

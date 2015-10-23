@@ -81,36 +81,36 @@ body {
 
 .bar { 
 
-	clear: both;
-	font-size: 1.1em;
-	height: 30px; 
-	margin-left: 25%;
+    clear: both;
+    font-size: 1.1em;
+    height: 30px; 
+    margin-left: 25%;
 }
 
-	.bar ul {
-		list-style : none;
-	}
+    .bar ul {
+            list-style : none;
+    }
 
-	.bar li { 
-		margin: 0; 
-		padding: 4px 10px 8px 10px;
-		color: #808080;
-		background: #FFF;
-		float: left; 
-	}
-	
-	.bar li .active { 
-		background: #FFF url(../images/img/bar.gif) no-repeat center bottom; 
-		color: #9EC068;
-		font-weight: bold; 
-		padding-bottom: 8px; 
-	}
+    .bar li { 
+            margin: 0; 
+            padding: 4px 10px 8px 10px;
+            color: #808080;
+            background: #FFF;
+            float: left; 
+    }
 
-	.bar a { 
-		font-weight: bold;
-		color: #4A8EBC; 
-		background: inherit;	
-	} 
+    .bar li .active { 
+            background: #FFF url(../images/img/bar.gif) no-repeat center bottom; 
+            color: #9EC068;
+            font-weight: bold; 
+            padding-bottom: 8px; 
+    }
+
+    .bar a { 
+            font-weight: bold;
+            color: #4A8EBC; 
+            background: inherit;	
+    } 
 
 .search_field { 
 	background: #C5E243; /*<- green*//*background: #DCF2B8 url(barbg.gif) no-repeat; */
@@ -146,78 +146,81 @@ body {
    --------- */
 
 .left {
-	float: left;
-	width: 65%;/*width: 435px;*/
-	margin: 0 0 10px 0;
+    float: left;
+    width: 65%;/*width: 435px;*/
+    margin: 10px 0 10px 0;
 }
-	.left_articles {
-		margin: 0 0 10px 0;
-		padding:8px;
-		text-align: justify;
-		border: 1px solid #eee;
-	}
-	
-	.left_articles a {
-		text-decoration: none;
-	}
-	
-	.left_articles img {
-		width: 15%;
-		height: auto;
-		float:left;
-		padding: 0 10px 10px 0;
-	}
-	
-	.left_articles:hover {
-		border: 1px solid #ccc;
-	}
+    .left_articles {
+        margin: 0 0 10px 0;
+        padding:8px;
+        text-align: justify;
+        border: 1px solid #eee;
+    }
+
+    .left_articles a {
+        text-decoration: none;
+    }
+
+    .left_articles img {
+        width: 15%;
+        height: auto;
+        float:left;
+        padding: 0 10px 10px 0;
+    }
+
+    .left_articles:hover {
+        border: 1px solid #ccc;
+    }
 	
 /* right side
    ---------- */
 		
 .right {
-	float: right;
-	width: 30%; /*width: 310px;*/
-	padding: 10px;
+    float: right;
+    width: 30%; /*width: 310px;*/
+    padding: 10px;
 }
 
-	.right_login {
-		width: 100%;
-		/*padding: 5px;*/
-		background: #FFD100; /*<- yellow*//*background: #A9D4F2;*/
-		color: #246088;
-		border-top: 1px solid #799350;
-		border-bottom: 1px solid #799350;
-		border-radius: 5px;
+    .right_login {
+        width: 100%;
+        /*padding: 5px;*/
+        background: #FFD100; /*<- yellow*//*background: #A9D4F2;*/
+        color: #246088;
+        border-top: 1px solid #799350;
+        border-bottom: 1px solid #799350;
+        border-radius: 5px;
 
-	}
-	
-	.right_login  .form-inline {
-	margin: 10px 11px 10px 17%;
+    }
+
+    .right_login  .form-inline {
+    margin: 10px 11px 10px 17%;
 }
 
-	.right_articles {
-		border: 1px solid #eee;
-		padding: 8px;	
-		margin: 0 0 10px 0;
-		text-align: justify;
-	}
-	
-	.right_articles  img {
-		float: left;
-	}
-	
-	.latest_news {
-		padding: 5px;
-		font-weight:bold;
-		font-size: 1.1em;
-		text-align: center;
-		border: 1px solid #eee;
-	}
-	
-	.right_articles:hover {
-		border: 1px solid #ccc;
-	}
+    .right_articles {
+            border: 1px solid #eee;
+            padding: 8px;	
+            margin: 0 0 10px 0;
+            text-align: justify;
+    }
+
+    .right_articles  img {
+            float: left;
+    }
+
+    .latest_news {
+        padding: 5px;
+        font-weight: bold;
+        font-size: 1.2em;
+        text-align: center;
+        border: 1px solid #eee;
+        font-family: 'Comfortaa', cursive;
+        font-style: italic;
+        color:#0088CC; /*blue*/
+    }
+
+    .right_articles:hover {
+            border: 1px solid #ccc;
+    }
 	
 /*categiries*/	
 	.right_categories {
@@ -267,4 +270,10 @@ body {
 .footer a {
 	color: #9EC068;
 	background: #fff;
+}
+
+/*pages*/
+
+.contacts {
+    padding: 10px;
 }

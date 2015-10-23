@@ -8,16 +8,16 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Gallery extends CI_Controller {
+class Contacts extends CI_Controller {
 	
     function index() {
 
         $this->load->model('gallery_model');
         $data['menu'] = $this->pages_model->get_menu();
-        $data['page_info'] = $this->pages_model->get_page_info('gallery');
+        $data['page_info'] = $this->pages_model->get_page_info('contacts');
         $data['categories'] = $this->pages_model->get_cat();
 
-        $name = 'gallery';
+        $name = 'contacts';
         $this->template->get_view($data, $name);
     }
 }
