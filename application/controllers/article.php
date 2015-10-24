@@ -20,6 +20,7 @@ class Article extends CI_Controller {
         $data['page_info'] = $this->articles_model->get_article($title);
         $data['categories'] = $this->pages_model->get_cat();
         $data['latest_articles'] = $this->pages_model->get_last_articles();
+        $data['comments'] = $this->articles_model->get_comments($title);
         $name = 'article';
        
         if($this->input->post('add_comment')) {
@@ -33,13 +34,13 @@ class Article extends CI_Controller {
                 $comment_data['author'] = $this->input->post('author');
                 $comment_data['comment'] = $this->input->post('comment_text');
                 $comment_data['avatar'] = $this->input->post('avatar');
-                $comment_data['note_id'] = $this->input->post('note_id');
+                $comment_data['title_url'] = $this->input->post('title_url');
                 $comment_data['date'] = date('Y-m-d');
                 $comment_data['time'] = date('H:i');
                 $comment_data['category'] = $this->input->post('category');
                 
                 $this->articles_model->add_comment($comment_data);
-                redirect(base_url() . 'index.php/article/view/' . $title);
+                redirect(base_url() . 'index.php/article/view/' . $title . '#c');
             }
             else {
                 
