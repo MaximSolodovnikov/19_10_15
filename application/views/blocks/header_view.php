@@ -1,15 +1,17 @@
  <div class="header">
     <div class="top_info">
-        <div class="top_info_right">
-            <p>Do you want to <a href="#">Log in</a> or <a href="#">register</a>?</p>
-            <div class="right_login">
-                <form class="form-inline">
-                    <input type="text" class="input-small" placeholder="Login">
-                    <input type="password" class="input-small" placeholder="Password">
-                    <input type="submit" class="btn btn-warning" name="login" value="Enter">
-                </form>
+        <?php if(($page_info['title_url'] != 'register')) {?>
+            <div class="top_info_right">
+                <p>Вы хотите <a href="#">Авторизоваться</a> или <a href="<?=base_url();?>index.php/login/register">Зарегистрироваться</a>?</p>
+                <div class="right_login">
+                    <form class="form-inline">
+                        <input type="text" class="input-small" placeholder="Логин">
+                        <input type="password" class="input-small" placeholder="Пароль">
+                        <input type="submit" class="btn btn-warning" name="login" value="Вход">
+                    </form>
+                </div>
             </div>
-        </div>
+        <?php } ?>
         <div class="top_info_left">
             <p>Сегодня: <b>
 			<?php 

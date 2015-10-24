@@ -1,3 +1,5 @@
+<?php if(($page_info['title_url'] != 'register')) {?>
+
 <div class="right">
     <p class="latest_news">Архив новостей</p>
     <div class="right_categories">	
@@ -18,3 +20,5 @@
         </div>
     <?php endforeach; ?>
 </div>
+
+<?php } ?>

@@ -21,6 +21,7 @@ class Article extends CI_Controller {
         $data['categories'] = $this->pages_model->get_cat();
         $data['latest_articles'] = $this->pages_model->get_last_articles();
         $data['comments'] = $this->articles_model->get_comments($title);
+        $data['error'] = '';
         $name = 'article';
        
         if($this->input->post('add_comment')) {
@@ -31,25 +32,38 @@ class Article extends CI_Controller {
             
             if($check) {
                 
-                $comment_data['author'] = $this->input->post('author');
-                $comment_data['comment'] = $this->input->post('comment_text');
-                $comment_data['avatar'] = $this->input->post('avatar');
-                $comment_data['title_url'] = $this->input->post('title_url');
-                $comment_data['date'] = date('Y-m-d');
-                $comment_data['time'] = date('H:i');
-                $comment_data['category'] = $this->input->post('category');
+                $captcha = $this->input->post('captcha');
                 
-                $this->articles_model->add_comment($comment_data);
-                redirect(base_url() . 'index.php/article/view/' . $title . '#c');
+                if($captcha == $this->session->userdata('captcha')) {
+                    
+                    $comment_data['author'] = $this->input->post('author');
+                    $comment_data['comment'] = $this->input->post('comment_text');
+                    $comment_data['avatar'] = $this->input->post('avatar');
+                    $comment_data['title_url'] = $this->input->post('title_url');
+                    $comment_data['date'] = date('Y-m-d');
+                    $comment_data['time'] = date('H:i');
+                    $comment_data['category'] = $this->input->post('category');
+
+                    $this->articles_model->add_comment($comment_data);
+                    redirect(base_url() . 'index.php/article/view/' . $title . '#c');
+                }
+                else {
+                    $data['error'] = "Символы с картинки введены не верно";
+                    $data['captcha'] = $this->captcha->get_captcha();
+                    $this->template->get_view($data, $name);
+                }
+                
             }
             else {
                 
+                $data['captcha'] = $this->captcha->get_captcha();
                 $this->template->get_view($data, $name);
             }
         }
         else {
             
-             $this->template->get_view($data, $name);
+            $data['captcha'] = $this->captcha->get_captcha();
+            $this->template->get_view($data, $name);
         }
     }
 }

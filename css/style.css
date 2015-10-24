@@ -42,11 +42,11 @@ body {
 /*-----Автор комментария-------*/
 
 .author_comment {
-    font-size: 1.4em;
+    font-size: 1.3em;
     font-weight: bold;
     color: #47ADCB; /*blue*/
     float:right;
-    margin-right: 71%;
+    margin-right: 68%;
     margin-top: 6%;
 }
 
@@ -322,6 +322,12 @@ body {
 	background: #fff;
 }
 
+.footer .active2 {
+	color: #308A00;
+        font-weight: bold;
+	background: #fff;
+}
+
 /*pages*/
 
 .contacts {
@@ -336,4 +342,8 @@ body {
     width: 100%;
     border-top: 1px solid #eee;
     clear: left;
+}
+
+.captcha {
+    margin:10px 0 5px 0; 
 }
