@@ -86,6 +86,7 @@ body {
 
 .date_article {
 	color: #BDBDBD; /*lightgrey*/
+        font-style: italic;
 }
 
 .top_info {
@@ -309,4 +310,8 @@ body {
 
 .contacts {
     padding: 10px;
+}
+
+.error {
+    color: red;
 }

@@ -24,4 +24,10 @@ class Articles_model extends CI_Model {
         $query = $this->db->get('articles');
         return $query->row_array();
     }
+    
+    /*Добавление комментариев*/
+    function add_comment($add) {
+        
+        $this->db->insert('comments', $add);
+    }
 }
