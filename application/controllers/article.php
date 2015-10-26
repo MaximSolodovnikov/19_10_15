@@ -52,7 +52,6 @@ class Article extends CI_Controller {
                     $data['captcha'] = $this->captcha->get_captcha();
                     $this->template->get_view($data, $name);
                 }
-                
             }
             else {
                 

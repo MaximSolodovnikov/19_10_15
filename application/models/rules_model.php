@@ -33,7 +33,7 @@ class Rules_model extends CI_Model {
                 (
                     'field' => 'username',
                     'label' => 'Логин',
-                    'rules' => 'required|min_length[5]|max_length[20]'
+                    'rules' => 'required|min_length[4]|max_length[20]'
                 ),
         
            array
@@ -46,8 +46,15 @@ class Rules_model extends CI_Model {
             array
                 (
                     'field' => 'pswd2',
-                    'label' => 'Пароль еще раз',
+                    'label' => 'Пароль повторно',
                     'rules' => 'required'
+
+                ),
+            array
+                (
+                    'field' => 'email',
+                    'label' => 'Эл.почта',
+                    'rules' => 'required|valid_email'
 
                 ),
             array
