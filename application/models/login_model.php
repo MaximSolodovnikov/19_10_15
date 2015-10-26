@@ -11,7 +11,7 @@ class Login_model extends CI_Model {
         return $query->row_array();
     }
     
-    /*Проверка логина на занятость*/
+    /*Проверка логина на занятость, при регистрации*/
     function check_login($username) {
         
         $this->db->where('username', $username);
@@ -30,5 +30,21 @@ class Login_model extends CI_Model {
     function register_user($new) {
         
         $this->db->insert('users', $new);
+    }
+    
+    /*Проверка логина и пароля при авторизации*/
+    function check_data_for_authorization($user, $pswd) {
+        
+        $this->db->where('username', $user);
+        $this->db->where('password', $pswd);
+        $this->db->select('username');
+        $query = $this->db->get('users');
+        
+        if($query->num_rows() > 0) {
+            return TRUE;
+        }
+        else {
+            return FALSE;
+        }
     }
 }

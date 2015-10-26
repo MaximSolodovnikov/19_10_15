@@ -1,4 +1,4 @@
-<?php if(($page_info['title_url'] != 'register')) {?>
+<?php if(($page_info['title_url'] != 'register' && $page_info['title_url'] != 'info_login_view')) {?>
 <div class="bar">
     <ul>
         <li><a href="<?=base_url();?>" <?php if($page_info['title_url'] == 'home') echo "class = 'active'";?>accesskey="">Главная</a></li>

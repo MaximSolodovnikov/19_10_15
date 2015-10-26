@@ -10,6 +10,39 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Login extends CI_Controller {
     
+    function index() {
+        
+        /*$this->load->library('form_validation');
+        $this->load->model('login_model');
+        $data['menu'] = $this->pages_model->get_menu();
+        $data['page_info'] = $this->login_model->get_info('register'); 
+        $data['categories'] = $this->pages_model->get_cat();
+        $data['latest_articles'] = $this->pages_model->get_last_articles();*/
+        $name = 'info_login';
+        $data['error'] = '';
+        $this->template->get_view($data, $name);
+        if($this->input->post('enter') && $this->input->post('login') && $this->input->post('password')) {
+            
+            $username = $this->input->post('login');
+            $password = $this->input->post('password');
+            
+            $login = $this->lgin_model->check_data_for_authorization($username, $password = sha1(md5($password)));
+            
+            if($login) {
+                
+                $ses_data = array(
+                    'user' => $username
+                );
+                
+                $this->session->set_userdata($ses_data);
+                redirect(base_url());
+            }
+            else $data['error'] = 'Вы ввели неправильный логин или пароль';
+        }
+        else 
+            redirect(base_url() . "index.php/login/register");
+    }
+    
     function register() {
         
         /*$this->load->library('pagination');*/

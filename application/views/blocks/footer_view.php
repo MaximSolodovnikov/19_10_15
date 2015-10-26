@@ -1,5 +1,5 @@
 <div class="footer">
-    <?php if(($page_info['title_url'] != 'register')) {?>
+    <?php if(($page_info['title_url'] != 'register' && $page_info['title_url'] != 'info_login_view')) {?>
             <p>
                 <a href="<?=base_url();?>" <?php if($page_info['title_url'] == 'home') echo "class = 'active2'";?>>Главная</a> | 
                 <a href="<?=base_url();?>index.php/articles" <?php if($page_info['title_url'] == 'articles') echo "class = 'active2'";?>accesskey="">Статьи</a>  | 
