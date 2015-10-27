@@ -2,7 +2,7 @@
     <div class="top_info">
         <?php if(($page_info['title_url'] != 'register' && $page_info['title_url'] != 'info_login_view')) {?>
             <div class="top_info_right">
-                <p>Желаете&nbsp;&nbsp;<a href="<?=base_url();?>index.php/login/register">Зарегистрироваться</a>?</p>
+                Желаете&nbsp;&nbsp;<a href="<?=base_url();?>index.php/login/register">Зарегистрироваться</a>?
                 <div class="right_login">
                     <form class="form-inline" method="POST" action="<?=base_url();?>index.php/login">
                         <input type="text" class="input-small" name="username" placeholder="Логин" value="">
@@ -10,6 +10,7 @@
                         <input type="submit" class="btn btn-warning" name="enter" value="Вход">
                     </form>
                 </div>
+                <a href="">Забыли пароль</a>?
             </div>
         <?php } ?>
         <div class="top_info_left">
