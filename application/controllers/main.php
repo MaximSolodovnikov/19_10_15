@@ -16,6 +16,7 @@ class Main extends CI_Controller {
         $data['page_info'] = $this->pages_model->get_page_info('home');
         $data['categories'] = $this->pages_model->get_cat();
         $data['latest_articles'] = $this->pages_model->get_last_articles();
+        $data['user'] = $this->session->userdata('user');
         $name = 'home';
         $this->template->get_view($data, $name);   
     }

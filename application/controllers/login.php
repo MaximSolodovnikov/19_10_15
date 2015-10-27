@@ -12,23 +12,20 @@ class Login extends CI_Controller {
     
     function index() {
         
-        /*$this->load->library('form_validation');
+        $this->load->library('form_validation');
         $this->load->model('login_model');
-        $data['menu'] = $this->pages_model->get_menu();
         $data['page_info'] = $this->login_model->get_info('register'); 
-        $data['categories'] = $this->pages_model->get_cat();
-        $data['latest_articles'] = $this->pages_model->get_last_articles();*/
         $name = 'info_login';
         $data['error'] = '';
-        $this->template->get_view($data, $name);
-        if($this->input->post('enter') && $this->input->post('login') && $this->input->post('password')) {
+        
+        if($this->input->post('enter') && $this->input->post('username') && $this->input->post('pswd')) {
             
-            $username = $this->input->post('login');
-            $password = $this->input->post('password');
+            $username = $this->input->post('username');
+            $password = $this->input->post('pswd');
             
-            $login = $this->lgin_model->check_data_for_authorization($username, $password = sha1(md5($password)));
+            $autorization = $this->login_model->check_data_for_authorization($username, $password = sha1(md5($password)));
             
-            if($login) {
+            if($autorization) {
                 
                 $ses_data = array(
                     'user' => $username
@@ -40,7 +37,8 @@ class Login extends CI_Controller {
             else $data['error'] = 'Вы ввели неправильный логин или пароль';
         }
         else 
-            redirect(base_url() . "index.php/login/register");
+            $data['error'] = 'Вам необходимо заполнить поля логин и пароль';
+            $this->template->get_view($data, $name);
     }
     
     function register() {

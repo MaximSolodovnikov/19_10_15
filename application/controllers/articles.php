@@ -15,6 +15,7 @@ class Articles extends CI_Controller {
         $this->load->library('pagination');
         $config['base_url'] = base_url() . 'index.php/articles/index';
         $config['total_rows'] = $this->db->count_all('articles');
+        $data['user'] = $this->session->userdata('user');
         $config['per_page'] = '2';
 
         $config['full_tag_open'] = '<ul>';
@@ -58,6 +59,7 @@ class Articles extends CI_Controller {
         $data['categories'] = $this->pages_model->get_cat();
         $data['articles'] = $this->articles_model->get_cat_articles($cat);
         $data['latest_articles'] = $this->pages_model->get_last_articles();
+        $data['user'] = $this->session->userdata('user');
         $name = 'articles';
         $this->template->get_view($data, $name);
     }

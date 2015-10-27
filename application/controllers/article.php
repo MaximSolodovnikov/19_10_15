@@ -21,6 +21,7 @@ class Article extends CI_Controller {
         $data['categories'] = $this->pages_model->get_cat();
         $data['latest_articles'] = $this->pages_model->get_last_articles();
         $data['comments'] = $this->articles_model->get_comments($title);
+        $data['user'] = $this->session->userdata('user');
         $data['error'] = '';
         $name = 'article';
        

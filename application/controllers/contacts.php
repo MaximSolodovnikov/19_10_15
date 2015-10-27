@@ -18,6 +18,7 @@ class Contacts extends CI_Controller {
         $data['page_info'] = $this->pages_model->get_page_info('contacts');
         $data['categories'] = $this->pages_model->get_cat();
         $data['latest_articles'] = $this->pages_model->get_last_articles();
+        $data['user'] = $this->session->userdata('user');
         $name = 'contacts';
         $this->template->get_view($data, $name);
     }
