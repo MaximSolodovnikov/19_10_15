@@ -47,4 +47,12 @@ class Login_model extends CI_Model {
             return FALSE;
         }
     }
+    
+    /*Информация о user, принимаем параметр login*/
+    function user_info($user) {
+        
+        $this->db->where('username', $user);
+        $query = $this->db->get('users');
+        return $query->row_array();
+    }
 }

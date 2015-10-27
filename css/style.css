@@ -347,3 +347,7 @@ body {
 .captcha {
     margin:10px 0 5px 0; 
 }
+
+.avatar {
+    float: left;
+}

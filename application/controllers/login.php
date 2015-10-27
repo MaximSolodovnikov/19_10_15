@@ -27,8 +27,11 @@ class Login extends CI_Controller {
             
             if($autorization) {
                 
+                $data['user_info'] = $this->login_model->user_info($username);
                 $ses_data = array(
-                    'user' => $username
+                    'user' => $username,
+                    'status' => $data['user_info']['status'],
+                    'avatar' => $data['user_info']['avatar']
                 );
                 
                 $this->session->set_userdata($ses_data);
@@ -108,5 +111,13 @@ class Login extends CI_Controller {
             $data['captcha'] = $this->captcha->get_captcha();
             $this->template->get_view($data, $name);
         }
+    }
+    
+    function logout() {
+        
+        $this->session->unset_userdata('user');
+        $this->session->unset_userdata('status');
+        $this->session->unset_userdata('avatar');
+        redirect(base_url());
     }
 }
