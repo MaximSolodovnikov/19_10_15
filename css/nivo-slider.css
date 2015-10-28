@@ -13,12 +13,14 @@
 /* The Nivo Slider styles */
 .nivoSlider {
 	position:relative;
+        border-radius:5px; 
+        
 }
 .nivoSlider img {
 	position:absolute;
 	top:0px;
 	left:0px;
-        border-radius: 5px;
+        
 }
 /* If an image is wrapped in a link */
 .nivoSlider a.nivo-imageLink {
@@ -39,6 +41,8 @@
 	position:absolute;
 	z-index:5;
 	height:100%;
+        border-radius:5px;
+        
 }
 .nivo-box {
 	display:block;
