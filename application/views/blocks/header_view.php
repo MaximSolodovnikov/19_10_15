@@ -1,6 +1,6 @@
  <div class="header">
     <div class="top_info">
-        <?php if(($page_info['title_url'] != 'register' && $page_info['title_url'] != 'info_login_view')) {?>
+        <?php if(($page_info['title_url'] != 'register' && $page_info['title_url'] != 'info_login_view' && $page_info['title_url'] != 'login')) {?>
             <div class="top_info_right">
                 Желаете&nbsp;&nbsp;<a href="<?=base_url();?>index.php/login/register">Зарегистрироваться</a>?
                 <div class="right_login">
