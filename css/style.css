@@ -34,7 +34,7 @@ body {
 /*-----Заголовок для конкретной статьи-------*/
 
 .title_particular_article {
-	font-size: 1.5em;
+	font-size: 1.3em;
 	font-weight: bold;
         color: #5CB85C;
 }
@@ -65,25 +65,25 @@ body {
 /*-----------------*/
 .title_article {
 	text-decoration: none;
-	font-size: 1.5em;
+	font-size: 1.3em;
 	font-weight: bold;
 }
 
 .title_article:hover {
 	text-decoration: none;
-	font-size: 1.5em;
+	font-size: 1.3em;
 	color: #5CB85C;
 }
 /*-----------------*/
 .title_latest_art {
 	text-decoration: none;
-	font-size: 1.1em;
+	font-size: 1em;
 	font-weight: bold;
 }
 
 .title_latest_art:hover {
 	text-decoration: none;
-	font-size: 1.1em;
+	font-size: 1em;
 	color: #5CB85C;
 }
 
@@ -240,6 +240,8 @@ body {
 
     .right_articles  img {
             float: left;
+            width: 30%;
+            height: auto;
     }
 
     .latest_news {
@@ -316,7 +318,11 @@ body {
 /*pages*/
 
 .contacts {
-    padding: 10px;
+    
+    margin: 0 0 10px 5px;
+    padding: 8px;
+    text-align: justify;
+    border: 1px solid #eee;
 }
 
 /*gallery*/
@@ -333,7 +339,7 @@ body {
     height:100px;
     float:left;
     margin:10px;
-    border:5px solid #3e3e5d;
+    border:3px solid #3e3e5d;
 }
 
 /*----end gallery----*/

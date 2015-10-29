@@ -18,8 +18,8 @@ class Articles extends CI_Controller {
         $data['user'] = $this->session->userdata('user');
         $data['user_info']['status'] = $this->session->userdata('status');
         $data['user_info']['avatar'] = $this->session->userdata('avatar');
-        $config['per_page'] = '2';
-
+        
+        $config['per_page'] = '5';
         $config['full_tag_open'] = '<ul>';
         $config['full_tag_close'] = '</ul>';
         $config['first_link'] = false;
@@ -45,6 +45,7 @@ class Articles extends CI_Controller {
         $data['menu'] = $this->pages_model->get_menu();
         $data['page_info'] = $this->pages_model->get_page_info('articles');
         $data['categories'] = $this->pages_model->get_cat();
+        $this->load->helper('text');
         $data['articles'] = $this->articles_model->get_all_articles($config['per_page'], $this->uri->segment(3));
         $data['latest_articles'] = $this->pages_model->get_last_articles();
         $name = 'articles';
@@ -52,8 +53,8 @@ class Articles extends CI_Controller {
     }
 
     /*Выбор статьи по категориям (по месяцам)*/
-
     function cat($cat) {
+        $this->load->helper('text');
         $this->load->library('pagination');
         $this->load->model('articles_model');
         $data['menu'] = $this->pages_model->get_menu();

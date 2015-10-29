@@ -14,6 +14,7 @@ class Contacts extends CI_Controller {
         
         $this->load->library('pagination');
         $this->load->model('gallery_model');
+        $this->load->helper('text');
         $data['menu'] = $this->pages_model->get_menu();
         $data['page_info'] = $this->pages_model->get_page_info('contacts');
         $data['categories'] = $this->pages_model->get_cat();

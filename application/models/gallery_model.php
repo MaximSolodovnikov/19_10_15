@@ -8,4 +8,10 @@ class Gallery_model extends CI_Model {
         $query = $this->db->get('gallery');
         return $query->result_array();
     }
+    
+        function get_all_images($num, $offset) {
+
+        $query = $this->db->get('gallery', $num, $offset);
+        return $query->result_array();
+    }
 }

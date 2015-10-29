@@ -12,6 +12,7 @@ class Login extends CI_Controller {
     
     function index() {
         
+        $this->load->library('pagination');
         $this->load->library('form_validation');
         $this->load->model('login_model');
         $data['page_info'] = $this->login_model->get_info('login'); 
@@ -46,7 +47,6 @@ class Login extends CI_Controller {
     
     function register() {
         
-        /*$this->load->library('pagination');*/
         $this->load->model('articles_model');        
         $this->load->model('login_model');
         $this->load->library('form_validation');

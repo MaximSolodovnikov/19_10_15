@@ -22,11 +22,11 @@ class Pages_model extends CI_Model {
         return $query->result_array();
     }
     
-     /*Вывод последних 5 статей*/
+     /*Вывод последних 3 статей*/
     function get_last_articles() {
         
         $this->db->order_by('id', 'desc');
-        $this->db->limit('5');
+        $this->db->limit('3');
         $query = $this->db->get('articles');
         return $query->result_array();
     }

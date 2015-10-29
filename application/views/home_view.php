@@ -1,26 +1,12 @@
 <div class="left">
-    <div class="left_articles">
-        <a class="title_article" href="#">Article about garden</a>
-        <p class="date_article">Date: 19.10.2015</p>
-        <a href=""><img src="<?=base_url();?>images/articles/nature_640x480.jpg" alt="" /></a>
-        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex.
-        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex.</p>
-        <p><a class="read_more" href="#">Read more...</a></p>
-    </div>
-    <div class="left_articles">			
-        <a class="title_article" href="#">How grows the tree</a>
-        <p class="date_article">Date: 15.10.2015</p>
-        <a href=""><img src="<?=base_url();?>images/articles/nightlife_640x480.jpg" alt="" /></a>
-        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex.
-        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex.</p>
-        <a class="read_more" href="#">Read more...</a>
-    </div>
-    <div class="left_articles">			
-        <a class="title_article" href="#">Growing flowers</a>
-        <p class="date_article">Date: 01.10.2015</p>
-        <a href=""><img src="<?=base_url();?>images/articles/food_640x480.jpg" alt="" /></a>
-        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex.
-        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex.</p>
-        <a class="read_more" href="#">Read more...</a>
-    </div>
-</div>	
+    <p class="latest_news">Последние новости</p>
+    <?php foreach($latest_articles as $item):?>
+        <div class="left_articles">
+            <a class="title_article" href="<?=base_url();?>index.php/article/view/<?php echo $item['title_url'];?>"><?php echo $item['title'];?></a>
+            <p class="date_article">Дата: <?php echo $item['date'];?></p>
+            <a href="<?=base_url();?>index.php/article/view/<?php echo $item['title_url'];?>"><img src="<?=base_url();?>images/articles/<?php echo $item['img'];?>" alt="" /></a>
+            <p><?= character_limiter($item['text'], 250); ?></p>
+            <p><a class="read_more" href="<?=base_url();?>index.php/article/view/<?php echo $item['title_url'];?>">Читать далее...</a></p>
+        </div>
+    <?php endforeach; ?>
+</div>

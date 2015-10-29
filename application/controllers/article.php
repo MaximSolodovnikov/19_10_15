@@ -13,6 +13,7 @@ class Article extends CI_Controller {
     /*Просмотр конкретной статьи*/
     function view($title) {
         
+        $this->load->helper('text');
         $this->load->library('form_validation'); 
         $this->load->library('pagination');
         $this->load->model('articles_model');

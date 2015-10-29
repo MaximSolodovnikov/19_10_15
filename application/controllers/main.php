@@ -11,10 +11,43 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Main extends CI_Controller {
     
     function index() {
+        
         $this->load->library('pagination');
+        $this->load->helper('text');
+        $config['base_url'] = base_url() . 'index.php/main/index';
+        $config['total_rows'] = $this->db->count_all('articles');
+        $data['user'] = $this->session->userdata('user');
+        $data['user_info']['status'] = $this->session->userdata('status');
+        $data['user_info']['avatar'] = $this->session->userdata('avatar');
+        
+        $config['per_page'] = '5';
+        $config['full_tag_open'] = '<ul>';
+        $config['full_tag_close'] = '</ul>';
+        $config['first_link'] = false;
+        $config['last_link'] = false;
+        $config['first_tag_open'] = '<li>';
+        $config['first_tag_close'] = '</li>';
+        $config['prev_link'] = '&laquo';
+        $config['prev_tag_open'] = '<li class="prev">';
+        $config['prev_tag_close'] = '</li>';
+        $config['next_link'] = '&raquo';
+        $config['next_tag_open'] = '<li>';
+        $config['next_tag_close'] = '</li>';
+        $config['last_tag_open'] = '<li>';
+        $config['last_tag_close'] = '</li>';
+        $config['cur_tag_open'] = '<li class="active"><a href="#">';
+        $config['cur_tag_close'] = '</a></li>';
+        $config['num_tag_open'] = '<li>';
+        $config['num_tag_close'] = '</li>';
+        
+        $this->pagination->initialize($config); 
+        
+        $this->load->model('articles_model');
+        
         $data['menu'] = $this->pages_model->get_menu();
         $data['page_info'] = $this->pages_model->get_page_info('home');
         $data['categories'] = $this->pages_model->get_cat();
+        $data['articles'] = $this->articles_model->get_all_articles($config['per_page'], $this->uri->segment(3));
         $data['latest_articles'] = $this->pages_model->get_last_articles();
         $data['user'] = $this->session->userdata('user');
         $data['user_info']['status'] = $this->session->userdata('status');
