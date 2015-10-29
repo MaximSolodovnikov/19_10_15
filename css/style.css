@@ -319,7 +319,27 @@ body {
     padding: 10px;
 }
 
-.error {
+/*gallery*/
+
+#gallery{
+    margin-top:30px;
+    margin-bottom:30px;
+    width:560px;
+    padding:10px;
+}
+
+#gallery img{
+    width:150px;
+    height:100px;
+    float:left;
+    margin:10px;
+    border:5px solid #3e3e5d;
+}
+
+/*----end gallery----*/
+
+
+.error { 
     color: red;
 }
 
