@@ -14,7 +14,7 @@ class Login extends CI_Controller {
         
         $this->load->library('form_validation');
         $this->load->model('login_model');
-        $data['page_info'] = $this->login_model->get_info('register'); 
+        $data['page_info'] = $this->login_model->get_info('login'); 
         $name = 'info_login';
         $data['error'] = '';
         
@@ -40,7 +40,7 @@ class Login extends CI_Controller {
             else $data['error'] = 'Вы ввели неправильный логин или пароль';
         }
         else 
-            $data['error'] = 'Вам необходимо заполнить поля логин и пароль';
+            $data['error'] = 'Неверные данные для авторизации';
             $this->template->get_view($data, $name);
     }
     
