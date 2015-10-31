@@ -39,6 +39,24 @@ body {
         color: #5CB85C;
 }
 
+/*Результат поиска*/
+
+.search_title {
+	font-size: 1.3em;
+	font-weight: bold;
+        color: #47ADCB;
+        text-decoration: none;
+        padding-left: 15px;
+}
+
+.search_title:hover {
+	font-size: 1.3em;
+	font-weight: bold;
+        color: #55AB55;
+        text-decoration: none;
+        padding-left: 15px;
+}
+
 /*-----Автор комментария-------*/
 
 .author_comment {
@@ -259,6 +277,22 @@ body {
         font-style: italic;
         color:#55AB55; /*green*/
     }
+    
+    .search_result {
+        padding: 5px;
+        font-weight: bold;
+        font-size: 1.2em;
+        text-align: center;
+        border-bottom: 1px solid #eee;
+        font-family: 'Comfortaa', cursive;
+        font-style: italic;
+        color:#55AB55; /*green*/
+    }
+    
+    .search_result p {
+        
+        padding: 5px;
+    }
 
     .right_articles:hover {
             border: 1px solid #ccc;
@@ -349,6 +383,15 @@ body {
 
 /*----end gallery----*/
 
+/* -----------------search--------- */
+
+.search {
+    float: left;
+    width: 100%;
+    height: 700px;
+    border: 1px solid #eee;
+}
+/*----end search----------*/
 
 .error { 
     color: red;

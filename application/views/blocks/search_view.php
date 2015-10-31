@@ -1,8 +1,8 @@
 <?php if(($page_info['title_url'] != 'register' && $page_info['title_url'] != 'info_login_view' && $page_info['title_url'] != 'login')) {?>
 <div class="search_field">
-    <form class="form-search" method="POST" action="">
-        <input type="text" name="search" placeholder="Поле для ввода">
-        <input type="submit" class="btn btn-success" name="search" value="Поиск">
+    <form class="form-search" method="POST" action="<?=base_url();?>index.php/search">
+        <input type="text" name="search" placeholder="Поле для ввода" >
+        <input type="submit" class="btn btn-success" name="search_btn" value="Поиск">
     </form>
 </div>
 <?php } ?>
