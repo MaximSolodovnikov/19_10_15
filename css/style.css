@@ -42,7 +42,7 @@ body {
 /*Результат поиска*/
 
 .search_title {
-	font-size: 1.3em;
+	font-size: 1.1em;
 	font-weight: bold;
         color: #47ADCB;
         text-decoration: none;
@@ -50,11 +50,18 @@ body {
 }
 
 .search_title:hover {
-	font-size: 1.3em;
+	font-size: 1.1em;
 	font-weight: bold;
         color: #55AB55;
         text-decoration: none;
         padding-left: 15px;
+}
+
+.search_text {
+    
+    font-size: 0.9em;
+    color: black;
+    padding-left: 15px;
 }
 
 /*-----Автор комментария-------*/
@@ -289,11 +296,6 @@ body {
         color:#55AB55; /*green*/
     }
     
-    .search_result p {
-        
-        padding: 5px;
-    }
-
     .right_articles:hover {
             border: 1px solid #ccc;
     }

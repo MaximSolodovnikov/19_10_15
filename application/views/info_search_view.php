@@ -6,10 +6,10 @@
                     echo "<div class='error'>&nbsp;&nbsp;По Вашему запросу ничего не найдено</div>";
         }else {?>
             <p class="search_result">Результат поиска:</p>
+            <div class="left_articles">
              <?php foreach ($search as $item): ?>
-            <p>&nbsp;&nbsp; Статья: <a class="search_title" href="<?=base_url();?>index.php/article/view/<?php echo $item->title_url;?>"><?php echo $item->title; ?></a></p>
-        <?php endforeach;
-        } ?>
-        
+                <a class="search_title" href="<?=base_url();?>index.php/article/view/<?php echo $item->title_url;?>"><?php echo '<ul><li><strong>' . $item->title . '</strong></li></ul>'; ?><?php echo "<br /> <p class='search_text'>" . character_limiter($item->text, 200) . '</p><br/>'; ?></a>
+             <?php endforeach; } ?>
+            </div>
     </div>
 </div>
