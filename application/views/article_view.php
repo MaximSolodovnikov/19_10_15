@@ -16,8 +16,8 @@
 <!-------------------Вывод комментариев---------------------------------------->        
     <?php foreach($comments as $item): ?>
         <div class="left_articles">
-            <p class="author_comment" ><?=$item['author'];?></p>
-            <img src="<?=base_url();?>images/avatars/<?=$item['avatar'];?>" alt="" class="image"/>
+            <p class="author_comment" ><?php echo $item['author']; ?></p>
+            <img src="<?=base_url();?>images/avatars/thumbs/<?=$item['avatar'];?>" alt="" class="image"/>
             <div class="line"></div>
             <p><?=$item['comment'];?></p>
             <div class="line"></div>
@@ -27,9 +27,9 @@
 
 <a name="f"></a>
         <form method="POST" action="<?=base_url();?>index.php/article/view/<?php echo $page_info['title_url']; ?>#f">
-            <label>Автор</label><div class="error"><?=form_error('author');?></div>
-            <input type="text" name="author" placeholder="Логин" value="<?=set_value('author');?>">
-            <input type="hidden" name="avatar" value="avatar.png">
+            <label>Автор: <?= $user;?> </label><div class="error"><?=form_error('author');?></div>
+            <input type="hidden" name="author" value="">
+            <input type="hidden" name="avatar" value="<?= $user_info['avatar']; ?>">
             <input type="hidden" name="title_url" value="<?php echo $page_info['title_url']; ?>">
             <input type="hidden" name="category" value="<?php echo $page_info['category']; ?>">
             <label>Комментарий</label><div class="error"><?=form_error('comment_text');?></div>
