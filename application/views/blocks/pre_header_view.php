@@ -8,9 +8,11 @@
 	<link type="text/css" rel="stylesheet" href="<?=base_url();?>css/style.css" />
 	<link type="text/css" rel="stylesheet" href="<?=base_url();?>css/bootstrap.min.css" />
         <link type="text/css" rel="stylesheet" href="<?=base_url();?>css/nivo-slider.css" />
+        <link type="text/css" rel="stylesheet" href="<?=base_url();?>css/lightbox.css" />
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 	<script type="text/javascript" src="<?=base_url();?>js/bootstrap.min.js" ></script>
         <script type="text/javascript" src="<?=base_url();?>js/jquery.nivo.slider.pack.js"></script>
+        <script type="text/javascript" src="<?=base_url();?>js/jquery.lightbox-0.5.js"></script>
 	<title><?=$page_info['title'];?></title>
 </head>
 <body>
