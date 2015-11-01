@@ -400,6 +400,15 @@ body {
     color: red;
 }
 
+.success { 
+    color: green;
+    font-size: 1.2em;
+    margin-left: 20%;
+    margin-top: 12%;
+    padding: 10px;
+    
+}
+
 .line {
     width: 100%;
     border-top: 1px solid #eee;

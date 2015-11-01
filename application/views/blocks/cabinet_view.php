@@ -3,9 +3,12 @@
         <?php if(($page_info['title_url'] != 'register' && $page_info['title_url'] != 'info_login_view')) {?>
         <br /><div class="top_info_right">
             <p><img class="avatar" src="<?=base_url();?>images/img/<?=$user_info['avatar'];?>" alt="Avatar"></p>
-            <p>Здравствуйте, <?=$user;?></p>    
+            <p>&nbsp;&nbsp;Здравствуйте, <?=$user;?></p>    
             
-            <p><a href="<?=base_url();?>index.php/login/logout">Выход</a></p>
+            <p>
+                &nbsp;&nbsp;<a href="<?=base_url();?>index.php/login/logout">Выход</a>&nbsp;&nbsp; 
+                <?php if($page_info['title_url'] != 'cabinet' ){?>| &nbsp;&nbsp; <a href="<?=base_url();?>index.php/cabinet">Дополнительно</a> <?php } ?>
+            </p>
             </div>
         <?php } ?>
         <div class="top_info_left">

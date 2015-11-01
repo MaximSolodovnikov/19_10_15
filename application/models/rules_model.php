@@ -26,14 +26,14 @@ class Rules_model extends CI_Model {
                     'rules' => 'required'
                 )
         );
-    /*Правила при регистрации нового пользователя*/
+    /*Правила для регистрации нового пользователя*/
     public $reg_rules = array
         (
             array
                 (
                     'field' => 'username',
                     'label' => 'Логин',
-                    'rules' => 'required|min_length[4]|max_length[20]'
+                    'rules' => 'required|min_length[3]|max_length[20]'
                 ),
         
            array
@@ -62,6 +62,31 @@ class Rules_model extends CI_Model {
                     'field' => 'captcha',
                     'label' => 'Символы с картинки',
                     'rules' => 'required'
+                )
+        );
+    /*Правила для изменения пароля*/
+    public $change_pswd_rules = array
+        (
+            array
+                (
+                    'field' => 'old_pswd',
+                    'label' => 'Старый пароль',
+                    'rules' => 'required|min_length[3]|max_length[20]'
+                ),
+        
+           array
+                (
+                    'field' => 'new_pswd',
+                    'label' => 'Новый пароль',
+                    'rules' => 'required'
+
+                ),
+            array
+                (
+                    'field' => 'new_pswd2',
+                    'label' => 'Пароль повторно',
+                    'rules' => 'required'
+
                 )
         );   
 }
