@@ -17,7 +17,7 @@
     <?php foreach($comments as $item): ?>
         <div class="left_articles">
             <p class="author_comment" ><?=$item['author'];?></p>
-            <img src="<?=base_url();?>images/img/<?=$item['avatar'];?>" alt="" class="image"/>
+            <img src="<?=base_url();?>images/avatars/<?=$item['avatar'];?>" alt="" class="image"/>
             <div class="line"></div>
             <p><?=$item['comment'];?></p>
             <div class="line"></div>

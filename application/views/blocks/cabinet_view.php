@@ -2,7 +2,7 @@
     <div class="top_info">
         <?php if(($page_info['title_url'] != 'register' && $page_info['title_url'] != 'info_login_view')) {?>
         <br /><div class="top_info_right">
-            <p><img class="avatar" src="<?=base_url();?>images/img/<?=$user_info['avatar'];?>" alt="Avatar"></p>
+            <p><img class="avatar" src="<?=base_url();?>images/avatars/thumbs/<?=$user_info['avatar'];?>" alt="Avatar"></p>
             <p>&nbsp;&nbsp;Здравствуйте, <?=$user;?></p>    
             
             <p>

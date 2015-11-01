@@ -159,7 +159,58 @@ class Cabinet extends CI_Controller {
         
         if( ! empty($data['user'])) {
             
-            
+            if($this->input->post('change_avatar')) {
+                
+                $config['upload_path'] = './images/avatars/';
+		$config['allowed_types'] = 'gif|jpg|png';
+		$config['max_size']	= '1000';
+		$config['encrypt_name']  = TRUE;
+		$config['remove_spaces']  = TRUE;
+                /*$config['max_width']  = '86';
+		$config['max_height']  = '86';*/
+		
+		$this->load->library('upload', $config);
+	
+		if ( ! $this->upload->do_upload('avatar'))
+		{
+			$data['error'] = $this->upload->display_errors();
+			$name = 'avatar';
+                        $this->template->get_view($data, $name);
+		}	
+		else
+		{
+                    $this->load->model('cabinet_model');
+                    $upload_data = $this->upload->data();
+                    $avatar['avatar'] = $upload_data['file_name'];
+                    $this->cabinet_model->change_avatar($data['user'], $avatar);
+                    $data['user_info'] = $this->login_model->user_info($data['user']);
+                    
+                    $ses_data = array(
+                        'avatar' => $data['user_info']['avatar']
+                    );
+                    
+                    $this->session->set_userdata($ses_data);
+                    
+                    $config['source_image']	= $upload_data['full_path']; 
+                    $config['new_image'] = APPPATH . '../images/avatars/thumbs';
+                    $config['maintain_ratio'] = TRUE; 
+                    $config['width']	= 86; 
+                    $config['height']	= 86;
+
+                    $this->load->library('image_lib', $config); // загружаем библиотеку 
+
+                    $this->image_lib->resize(); // и вызываем функцию
+
+                    $data['error'] = "Аватар успешно изменен";    
+                    $name = 'info_cabinet';
+                    $this->template->get_view($data, $name);
+		}
+            }
+            else {
+                
+            $name = 'avatar';
+            $this->template->get_view($data, $name);
+            }
         }
         else {
             

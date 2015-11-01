@@ -1,8 +1,8 @@
 <div class="error"><?=$error;?></div><br />
-<form method="POST" action="<?=base_url();?>index.php/cabinet/avatar">
-    <label>Старый (email):</label><div class="error"><?=form_error('old_email');?></div>
-    <input type="text" name="old_email" placeholder="Введите старый (email)" value="<?=set_value('old_email');?>">
-    <label>Новый (email):</label><div class="error"><?=form_error('new_email');?></div>
-    <input type="text" name="new_email" placeholder="Введите новый (email)" value="<?=set_value('new_email');?>"><br />
-    <input type="submit" class="btn btn-info" name="change_email" value="Изменить">
+
+&nbsp;&nbsp;<img class="avatar" src="<?=base_url();?>images/avatars/thumbs/<?=$user_info['avatar'];?>" width="86" height="86" alt="Avatar">
+
+<form method="POST" action="<?=base_url();?>index.php/cabinet/avatar" enctype="multipart/form-data">
+    <input style="padding-left: 10px;" type="file" name="avatar"><br /><br /><br /><br /><br />
+    <input type="submit" class="btn btn-info" name="change_avatar" value="Изменить">
 </form>

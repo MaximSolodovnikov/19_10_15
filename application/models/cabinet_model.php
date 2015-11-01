@@ -37,6 +37,12 @@ class Cabinet_model extends CI_Model {
         $this->db->where('username', $user);
         $this->db->update('users', $email);
     }
+    
+    function change_avatar($user, $avatar) {
+        
+        $this->db->where('username', $user);
+        $this->db->update('users', $avatar);
+    }
 }
         
         
