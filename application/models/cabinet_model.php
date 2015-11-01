@@ -15,6 +15,28 @@ class Cabinet_model extends CI_Model {
         $this->db->where('username', $user);
         $this->db->update('users', $pswd);
     }
+    
+    function old_email_check($user, $email) {
+        
+        $this->db->where('username', $user);
+        $this->db->where('email', $email);
+        $query = $this->db->get('users');
+        
+        if($query->num_rows() > 0) {
+            
+            return TRUE;
+        }
+        else {
+            
+            return FALSE;
+        }
+    }
+    
+    function change_email($user, $email) {
+        
+        $this->db->where('username', $user);
+        $this->db->update('users', $email);
+    }
 }
         
         

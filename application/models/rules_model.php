@@ -89,4 +89,22 @@ class Rules_model extends CI_Model {
 
                 )
         );   
+    
+    /*Правила для изменения email*/
+    public $change_email_rules = array
+        (
+            array
+                (
+                    'field' => 'old_email',
+                    'label' => 'Старый (email)',
+                    'rules' => 'required|valid_email'
+                ),
+        
+           array
+                (
+                    'field' => 'new_email',
+                    'label' => 'Новый (email)',
+                    'rules' => 'required|valid_email'
+                )
+        );   
 }
