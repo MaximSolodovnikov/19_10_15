@@ -89,7 +89,7 @@ class Cabinet extends CI_Controller {
         else {
             
             $data['error'] = 'Для этой операции Вам необходимо авторизироваться';
-            $name = 'pswd';
+            $name = 'info_cabinet';
             $this->template->get_view($data, $name);
         }
     }
@@ -141,7 +141,30 @@ class Cabinet extends CI_Controller {
         else {
             
             $data['error'] = 'Для этой операции Вам необходимо авторизироваться';
-            $name = 'email';
+            $name = 'info_cabinet';
+            $this->template->get_view($data, $name);
+        }
+    }
+    
+    function avatar() {
+        
+        $this->load->model('login_model');
+        $this->load->library('pagination');
+        $this->load->library('form_validation');
+        $data['page_info'] = $this->login_model->get_info('avatar'); 
+        $data['user'] = $this->session->userdata('user');
+        $data['user_info']['status'] = $this->session->userdata('status');
+        $data['user_info']['avatar'] = $this->session->userdata('avatar');
+        $data['error'] = '';
+        
+        if( ! empty($data['user'])) {
+            
+            
+        }
+        else {
+            
+            $data['error'] = 'Для этой операции Вам необходимо авторизироваться';
+            $name = 'info_cabinet';
             $this->template->get_view($data, $name);
         }
     }
