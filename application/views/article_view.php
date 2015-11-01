@@ -2,9 +2,10 @@
     <div class="left_articles">
         <p class="title_particular_article" ><?php echo $page_info['title']; ?></p>
         <p class="date_article">Дата: <?php echo $page_info['date']; ?></p>
-        <img src="<?=base_url();?>images/articles/<?php echo $page_info['img']; ?>" alt="" />
+        <a href="<?=base_url();?>images/articles/<?php echo $page_info['img']; ?>" data-lightbox="image"><img src="<?=base_url();?>images/articles/<?php echo $page_info['img']; ?>" alt="" /></a>
         <p><?php echo $page_info['text']; ?></p>
     </div>
+    <script src="<?=base_url();?>js/lightbox.js"></script>
 <!-------------------Комментарии----------------------------------------------->  
 <a name="c"></a>
     <div class="left_articles">
