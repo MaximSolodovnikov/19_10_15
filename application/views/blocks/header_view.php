@@ -10,7 +10,7 @@
                         <input type="submit" class="btn btn-warning" name="enter" value="Вход">
                     </form>
                 </div>
-                <a href="">Забыли пароль</a>?
+                <a href="<?=base_url();?>index.php/login/forgot_pswd">Забыли пароль</a>?
             </div>
         <?php } ?>
         <div class="top_info_left">

@@ -120,4 +120,54 @@ class Login extends CI_Controller {
         $this->session->unset_userdata('avatar');
         redirect(base_url());
     }
+    
+    function forgot_pswd() {
+        
+        $this->load->library('pagination');
+        $this->load->library('form_validation');
+        $this->load->model('login_model');
+        $data['page_info'] = $this->login_model->get_info('forgot_pswd'); 
+        $data['error'] = '';
+
+        if($this->input->post('send_pswd')) {
+            
+            $this->load->model('rules_model');
+            $this->form_validation->set_rules($this->rules_model->forgot_pswd_rules);
+            $check = $this->form_validation->run();
+            
+            if($check) {
+                
+                $login = $this->input->post('login');
+                $email = $this->input->post('email');
+                
+                if($this->login_model->check_forgot_pswd($login, $email)) {
+                    
+                    $this->load->helper('string');
+                    $new_pswd['password'] = random_string('numeric', 4);
+                    mail($email, "Мой сад и огород - Восстановление пароля", $new_pswd['password']);
+                    $new_pswd['password'] = sha1(md5($new_pswd['password']));
+                    $this->login_model->update_pswd($login, $new_pswd);
+                    $data['error'] = "Пароль был успешно изменен. Проверте свой email";
+                    $name = 'forgot_pswd';
+                    $this->template->get_view($data, $name);
+                }
+                else {
+                    
+                    $data['error'] = "Такой комбинации login и email не найдено.";
+                    $name = 'forgot_pswd';
+                    $this->template->get_view($data, $name);
+                }
+            }
+            else {
+                
+                $name = 'forgot_pswd';
+                $this->template->get_view($data, $name);
+            }
+        }
+        else {
+            
+            $name = 'forgot_pswd';
+            $this->template->get_view($data, $name);
+        }
+    }
 }

@@ -106,5 +106,23 @@ class Rules_model extends CI_Model {
                     'label' => 'Новый (email)',
                     'rules' => 'required|valid_email'
                 )
+        );
+    
+    /*Правила для восстановления пароля*/
+    public $forgot_pswd_rules = array
+        (
+            array
+                (
+                    'field' => 'login',
+                    'label' => 'Логин',
+                    'rules' => 'required|min_length[3]|max_length[20]'
+                ),
+        
+           array
+                (
+                    'field' => 'email',
+                    'label' => 'email',
+                    'rules' => 'required|valid_email'
+                )
         );   
 }
