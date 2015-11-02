@@ -16,7 +16,7 @@
 <!-------------------Вывод комментариев---------------------------------------->        
     <?php foreach($comments as $item): ?>
         <div class="left_articles">
-            <p class="author_comment" ><?php echo $item['author']; ?></p>
+            <p class="author_comment" ><?php echo $user; ?></p>
             <img src="<?=base_url();?>images/avatars/thumbs/<?=$item['avatar'];?>" alt="" class="image"/>
             <div class="line"></div>
             <p><?=$item['comment'];?></p>
