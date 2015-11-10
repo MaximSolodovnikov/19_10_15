@@ -1,27 +1,19 @@
-<?php
-
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-defined('BASEPATH') OR exit('No direct script access allowed');
+<?php defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Article extends CI_Controller {
 
-    /*Просмотр конкретной статьи*/
-    function view($title) {
+    /*View of one article*/
+    function view($id) {
         
         $this->load->helper('text');
         $this->load->library('form_validation'); 
         $this->load->library('pagination');
         $this->load->model('articles_model');
         $data['menu'] = $this->pages_model->get_menu();
-        $data['page_info'] = $this->articles_model->get_article($title);
+        $data['page_info'] = $this->articles_model->get_article($id);
         $data['categories'] = $this->pages_model->get_cat();
         $data['latest_articles'] = $this->pages_model->get_last_articles();
-        $data['comments'] = $this->articles_model->get_comments($title);
+        $data['comments'] = $this->articles_model->get_comments($id);
         $data['user'] = $this->session->userdata('user');
         $data['user_info']['status'] = $this->session->userdata('status');
         $data['user_info']['avatar'] = $this->session->userdata('avatar');
@@ -43,13 +35,13 @@ class Article extends CI_Controller {
                     $comment_data['author'] = $this->input->post('author');
                     $comment_data['comment'] = $this->input->post('comment_text');
                     $comment_data['avatar'] = $this->input->post('avatar');
-                    $comment_data['title_url'] = $this->input->post('title_url');
+                    $comment_data['id'] = $this->input->post('id');
                     $comment_data['date'] = date('Y-m-d');
-                    $comment_data['time'] = date('H:i');
+                    $comment_data['time'] = date('H:i:s');
                     $comment_data['category'] = $this->input->post('category');
 
                     $this->articles_model->add_comment($comment_data);
-                    redirect(base_url() . 'index.php/article/view/' . $title . '#c');
+                    redirect(base_url() . 'index.php/article/view/' . $id . '#c');
                 }
                 else {
                     $data['error'] = "Символы с картинки введены не верно";

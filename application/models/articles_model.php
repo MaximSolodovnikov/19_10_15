@@ -9,7 +9,7 @@ class Articles_model extends CI_Model {
         return $query->result_array();
     }
     
-    /*Выбор статей по категориям*/
+    /*Output of articles by category*/
     function get_cat_articles($cat) {
         
         $this->db->where('category', $cat);
@@ -17,25 +17,25 @@ class Articles_model extends CI_Model {
         return $query->result_array();
     }
     
-    /*Вывод конкретной статьи*/
-    function get_article($title) {
+    /*Output of one article*/
+    function get_article($id) {
         
-        $this->db->where('title_url', $title);
+        $this->db->where('id', $id);
         $query = $this->db->get('articles');
         return $query->row_array();
     }
     
-    /*Добавление комментариев*/
+    /*Adding of comments*/
     function add_comment($add) {
         
         $this->db->insert('comments', $add);
     }
     
-    /*Вывод комментариев*/
-    function get_comments($title) {
+    /*Output of comments*/
+    function get_comments($id) {
         
         $this->db->order_by('id', 'desc');
-        $this->db->where('title_url', $title);
+        $this->db->where('id', $id);
         $query = $this->db->get('comments');
         return $query->result_array();
     }
