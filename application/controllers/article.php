@@ -22,6 +22,11 @@ class Article extends CI_Controller {
         $data['user_info']['status'] = $this->session->userdata('status');
         $data['user_info']['avatar'] = $this->session->userdata('avatar');
         $data['error'] = '';
+        
+        if(empty($data['page_info'])) {
+            
+            redirect(base_url());
+        }
         $name = 'article';
        
         if($this->input->post('add_comment')) {
@@ -38,7 +43,7 @@ class Article extends CI_Controller {
                     $comment_data['comment'] = $this->input->post('comment_text');
                     $comment_data['avatar'] = $this->input->post('avatar');
                     $comment_data['id'] = $this->input->post('id');
-                    $comment_data['date'] = date('Y-m-d / H:i:s');
+                    $comment_data['date'] = date('Y-m-d');
                     $comment_data['time'] = date('H:i:s');
                     $comment_data['category'] = $this->input->post('category');
                     $this->articles_model->add_comment($comment_data);

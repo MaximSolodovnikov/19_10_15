@@ -78,17 +78,43 @@ class Login extends CI_Controller {
                 
                 if($captcha != $this->session->userdata('captcha')) {
                     
-                     $info_msg = "Символы с картинки не совпадают";
+                    $info_msg = "Символы с картинки не совпадают";
                 }
-                
+
                 if($check_login && $password == $password2 && $captcha == $this->session->userdata('captcha')) {
                     
                     $new['username'] = $username;
                     $new['password'] = sha1(md5($password));
                     $new['email'] = $email;
+                    
                     /*-----------------For avatar upload--------------------------------*/
 
+                    $config['upload_path'] = './images/avatars/';
+                    $config['allowed_types'] = 'gif|jpg|png';
+                    $config['max_size']	= '1000';
+                    $config['encrypt_name']  = TRUE;
+                    $config['remove_spaces']  = TRUE;
+		
+                    $this->load->library('upload', $config);
+                    
+                    $this->upload->do_upload('avatar');
+
+                    $upload_data = $this->upload->data();
+                
+                    $new['avatar'] = $upload_data['file_name'];
+
+                    $config['source_image']	= $upload_data['full_path']; 
+                    $config['new_image'] = APPPATH . '../images/avatars/thumbs';
+                    $config['maintain_ratio'] = TRUE; 
+                    $config['width']	= 86; 
+                    $config['height']	= 86;
+
+                    $this->load->library('image_lib', $config); // загружаем библиотеку 
+
+                    $this->image_lib->resize(); // и вызываем функцию
+
                     /*-------------------------------------------------*/
+                    
                     $this->login_model->register_user($new);
                     redirect(base_url());    
                 }

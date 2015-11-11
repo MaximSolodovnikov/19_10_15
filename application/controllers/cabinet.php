@@ -99,7 +99,6 @@ class Cabinet extends CI_Controller {
             
             if($this->form_validation->run() && $this->input->post('change_email')) {
                 
-                $this->load->model('cabinet_model');
                 $old_email = $this->input->post('old_email');
                 $check_old_email = $this->cabinet_model->old_email_check($data['user'], $old_email);
                 
