@@ -1,20 +1,19 @@
-<?php
-
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-defined('BASEPATH') OR exit('No direct script access allowed');
+<?php defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Login extends CI_Controller {
     
+    function __construct() {
+        parent::__construct();
+        
+            $this->load->library('form_validation');
+            $this->load->model('login_model');
+            $this->load->model('articles_model'); 
+            $this->load->model('rules_model');
+            $this->load->helper('string');
+    }
+    
     function index() {
         
-        $this->load->library('pagination');
-        $this->load->library('form_validation');
-        $this->load->model('login_model');
         $data['page_info'] = $this->login_model->get_info('login'); 
         $name = 'info_login';
         $data['error'] = '';
@@ -47,11 +46,8 @@ class Login extends CI_Controller {
     
     function register() {
         
-        $this->load->model('articles_model');        
-        $this->load->model('login_model');
-        $this->load->library('form_validation');
         $data['menu'] = $this->pages_model->get_menu();
-        $data['page_info'] = $this->login_model->get_info('register'); /*Получение данных об странице из таблицы tech_section*/
+        $data['page_info'] = $this->login_model->get_info('register');
         $data['categories'] = $this->pages_model->get_cat();
         $data['latest_articles'] = $this->pages_model->get_last_articles();
         $data['error'] = '';
@@ -59,11 +55,9 @@ class Login extends CI_Controller {
         
         if($this->input->post('register')) {
             
-            $this->load->model('rules_model');
             $this->form_validation->set_rules($this->rules_model->reg_rules);
-            $check = $this->form_validation->run();
             
-            if($check) {
+            if($this->form_validation->run()) {
                 
                 $username = $this->input->post('username');
                 $password = $this->input->post('pswd');
@@ -92,7 +86,9 @@ class Login extends CI_Controller {
                     $new['username'] = $username;
                     $new['password'] = sha1(md5($password));
                     $new['email'] = $email;
-                    
+                    /*-----------------For avatar upload--------------------------------*/
+
+                    /*-------------------------------------------------*/
                     $this->login_model->register_user($new);
                     redirect(base_url());    
                 }
@@ -123,26 +119,20 @@ class Login extends CI_Controller {
     
     function forgot_pswd() {
         
-        $this->load->library('pagination');
-        $this->load->library('form_validation');
-        $this->load->model('login_model');
         $data['page_info'] = $this->login_model->get_info('forgot_pswd'); 
         $data['error'] = '';
 
         if($this->input->post('send_pswd')) {
-            
-            $this->load->model('rules_model');
+
             $this->form_validation->set_rules($this->rules_model->forgot_pswd_rules);
-            $check = $this->form_validation->run();
-            
-            if($check) {
+
+            if($this->form_validation->run()) {
                 
                 $login = $this->input->post('login');
                 $email = $this->input->post('email');
                 
                 if($this->login_model->check_forgot_pswd($login, $email)) {
                     
-                    $this->load->helper('string');
                     $new_pswd['password'] = random_string('numeric', 4);
                     mail($email, "Мой сад и огород - Восстановление пароля", $new_pswd['password']);
                     $new_pswd['password'] = sha1(md5($new_pswd['password']));

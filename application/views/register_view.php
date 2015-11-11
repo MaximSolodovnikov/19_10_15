@@ -1,5 +1,11 @@
 <div class="error"><?=$error;?></div><br />
-<form method="POST" action="<?=base_url();?>index.php/login/register">
+
+<img class="avatar" src="<?=base_url();?>images/avatars/thumbs/avatar.png" width="86" height="86" alt="Avatar">
+
+<form method="POST" action="<?=base_url();?>index.php/login/register" enctype="multipart/form-data">
+    
+    <input class="input_file" type="file" name="avatar">
+    
     <label>Логин:</label><div class="error"><?=form_error('username');?></div>
     <input type="text" name="username" placeholder="Введите логин" value="<?=set_value('username');?>">
     <label>Пароль:</label><div class="error"><?=form_error('pswd');?></div>

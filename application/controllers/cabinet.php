@@ -1,20 +1,18 @@
-<?php
-
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-defined('BASEPATH') OR exit('No direct script access allowed');
+<?php defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Cabinet extends CI_Controller {
     
+    function __construct() {
+        parent::__construct();
+        
+            $this->load->library('form_validation');
+            $this->load->model('login_model');
+            $this->load->model('rules_model');
+            $this->load->model('cabinet_model');
+    }
+    
     function index() {
         
-        $this->load->library('pagination');
-        $this->load->library('form_validation');
-        $this->load->model('login_model');
         $data['page_info'] = $this->login_model->get_info('cabinet'); 
         $data['user'] = $this->session->userdata('user');
         $data['user_info']['status'] = $this->session->userdata('status');
@@ -26,25 +24,18 @@ class Cabinet extends CI_Controller {
     
     function password() {
         
-        $this->load->model('login_model');
-        $this->load->library('pagination');
-        $this->load->library('form_validation');
         $data['page_info'] = $this->login_model->get_info('password'); 
         $data['user'] = $this->session->userdata('user');
         $data['user_info']['status'] = $this->session->userdata('status');
         $data['user_info']['avatar'] = $this->session->userdata('avatar');
-        
         $data['error'] = '';
         
         if( ! empty($data['user'])) {
             
-            $this->load->model('rules_model');
             $this->form_validation->set_rules($this->rules_model->change_pswd_rules);
-            $check = $this->form_validation->run();
             
-            if($check && $this->input->post('change_pswd')) {
+            if($this->form_validation->run() && $this->input->post('change_pswd')) {
                 
-                $this->load->model('cabinet_model');
                 $old_pswd = $this->input->post('old_pswd');
                 $old_pswd = sha1(md5($old_pswd));
                 $new_password = $this->input->post('new_pswd');
@@ -96,9 +87,6 @@ class Cabinet extends CI_Controller {
     
     function email() {
         
-        $this->load->model('login_model');
-        $this->load->library('pagination');
-        $this->load->library('form_validation');
         $data['page_info'] = $this->login_model->get_info('email'); 
         $data['user'] = $this->session->userdata('user');
         $data['user_info']['status'] = $this->session->userdata('status');
@@ -107,11 +95,9 @@ class Cabinet extends CI_Controller {
         
         if( ! empty($data['user'])) {
             
-            $this->load->model('rules_model');
             $this->form_validation->set_rules($this->rules_model->change_email_rules);
-            $check = $this->form_validation->run();
             
-            if($check && $this->input->post('change_email')) {
+            if($this->form_validation->run() && $this->input->post('change_email')) {
                 
                 $this->load->model('cabinet_model');
                 $old_email = $this->input->post('old_email');
@@ -148,9 +134,6 @@ class Cabinet extends CI_Controller {
     
     function avatar() {
         
-        $this->load->model('login_model');
-        $this->load->library('pagination');
-        $this->load->library('form_validation');
         $data['page_info'] = $this->login_model->get_info('avatar'); 
         $data['user'] = $this->session->userdata('user');
         $data['user_info']['status'] = $this->session->userdata('status');
@@ -166,8 +149,6 @@ class Cabinet extends CI_Controller {
 		$config['max_size']	= '1000';
 		$config['encrypt_name']  = TRUE;
 		$config['remove_spaces']  = TRUE;
-                /*$config['max_width']  = '86';
-		$config['max_height']  = '86';*/
 		
 		$this->load->library('upload', $config);
 	
@@ -179,7 +160,6 @@ class Cabinet extends CI_Controller {
 		}	
 		else
 		{
-                    $this->load->model('cabinet_model');
                     $upload_data = $this->upload->data();
                     $avatar['avatar'] = $upload_data['file_name'];
                     $this->cabinet_model->change_avatar($data['user'], $avatar);
@@ -212,8 +192,8 @@ class Cabinet extends CI_Controller {
             $this->template->get_view($data, $name);
             }
         }
-        else {
-            
+        else 
+        {
             $data['error'] = 'Для этой операции Вам необходимо авторизироваться';
             $name = 'info_cabinet';
             $this->template->get_view($data, $name);

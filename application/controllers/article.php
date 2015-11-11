@@ -2,13 +2,17 @@
 
 class Article extends CI_Controller {
 
+    function __construct() {
+        parent::__construct();
+        
+            $this->load->library('form_validation'); 
+            $this->load->model('articles_model');
+            $this->load->model('rules_model');
+    }
+    
     /*View of one article*/
     function view($id) {
         
-        $this->load->helper('text');
-        $this->load->library('form_validation'); 
-        $this->load->library('pagination');
-        $this->load->model('articles_model');
         $data['menu'] = $this->pages_model->get_menu();
         $data['page_info'] = $this->articles_model->get_article($id);
         $data['categories'] = $this->pages_model->get_cat();
@@ -22,11 +26,9 @@ class Article extends CI_Controller {
        
         if($this->input->post('add_comment')) {
             
-            $this->load->model('rules_model');
             $this->form_validation->set_rules($this->rules_model->comments_rules);
-            $check = $this->form_validation->run();
-            
-            if($check) {
+           
+            if($this->form_validation->run()) {
                 
                 $captcha = $this->input->post('captcha');
                 
@@ -39,7 +41,6 @@ class Article extends CI_Controller {
                     $comment_data['date'] = date('Y-m-d');
                     $comment_data['time'] = date('H:i:s');
                     $comment_data['category'] = $this->input->post('category');
-
                     $this->articles_model->add_comment($comment_data);
                     redirect(base_url() . 'index.php/article/view/' . $id . '#c');
                 }
@@ -50,13 +51,11 @@ class Article extends CI_Controller {
                 }
             }
             else {
-                
                 $data['captcha'] = $this->captcha->get_captcha();
                 $this->template->get_view($data, $name);
             }
         }
         else {
-            
             $data['captcha'] = $this->captcha->get_captcha();
             $this->template->get_view($data, $name);
         }

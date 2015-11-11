@@ -8,9 +8,9 @@
         <tr>
             <td valign="top">
                 <?php foreach($img as $item): ?>
-
-                    <a href="<?=base_url();?>images/gallery/<?=$item['img'];?>" data-lightbox="image" ><img src="<?=base_url();?>images/thumbs/<?=$item['thumbs'];?>" /></a>
-
+                    <a href="<?=base_url();?>images/gallery/<?=$item['img'];?>" data-lightbox="image" >
+                        <img src="<?=base_url();?>images/thumbs/<?=$item['thumbs'];?>" />
+                    </a>
                 <?php endforeach; ?>
             </td>
         </tr>

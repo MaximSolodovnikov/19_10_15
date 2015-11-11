@@ -420,7 +420,12 @@ body {
 }
 
 .avatar {
-    float: left;
+    /*float: left;*/
+   /* margin: 10px 0 0 0;*/
+}
+
+.input_file {
+    margin: 0 0 20px 0;
 }
 /*============================*/
 /*=== Custom Slider Styles ===*/
@@ -464,7 +469,7 @@ body {
 
 .nivo-controlNav {
 	position:absolute;
-	left:50%;
+	left:47%;
 	bottom:-2px;
 }
 .nivo-controlNav a {

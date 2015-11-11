@@ -1,19 +1,14 @@
-<?php
-
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-defined('BASEPATH') OR exit('No direct script access allowed');
+<?php defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Gallery extends CI_Controller {
 	
+    function __construct() {
+        parent::__construct();
+        
+            $this->load->model('gallery_model');
+    }
     function index() {
         
-        $this->load->helper('text');
-        $this->load->model('gallery_model');
         $data['menu'] = $this->pages_model->get_menu();
         $data['page_info'] = $this->pages_model->get_page_info('gallery');
         $data['categories'] = $this->pages_model->get_cat();
@@ -22,8 +17,7 @@ class Gallery extends CI_Controller {
         $data['user_info']['status'] = $this->session->userdata('status');
         $data['user_info']['avatar'] = $this->session->userdata('avatar');
         $name = 'gallery';
-        
-        $this->load->library('pagination');
+
         $config['base_url'] = base_url() . 'index.php/gallery/index';
         $config['total_rows'] = $this->db->count_all('gallery');
         $config['per_page'] = '12';

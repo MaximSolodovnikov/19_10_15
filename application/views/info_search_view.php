@@ -8,7 +8,7 @@
             <p class="search_result">Результат поиска:</p>
             <div class="left_articles">
              <?php foreach ($search as $item): ?>
-                <a class="search_title" href="<?=base_url();?>index.php/article/view/<?php echo $item->title_url;?>"><?php echo '<ul><li><strong>' . $item->title . '</strong></li></ul>'; ?><?php echo "<br /> <p class='search_text'>" . character_limiter($item->text, 200) . '</p><br/>'; ?></a>
+                <a class="search_title" href="<?=base_url();?>index.php/article/view/<?php echo $item->id;?>"><?php echo '<ul><li><strong>' . $item->title . '</strong></li></ul>'; ?><?php echo "<br /> <p class='search_text'>" . character_limiter($item->text, 200) . '</p><br/>'; ?></a>
              <?php endforeach; } ?>
             </div>
     </div>

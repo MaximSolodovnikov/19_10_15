@@ -1,25 +1,17 @@
-<?php
-
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-defined('BASEPATH') OR exit('No direct script access allowed');
+<?php defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Main extends CI_Controller {
     
+    function __construct() {
+        parent::__construct();
+        
+            $this->load->model('articles_model');
+    }
+    
     function index() {
         
-        $this->load->library('pagination');
-        $this->load->helper('text');
         $config['base_url'] = base_url() . 'index.php/main/index';
         $config['total_rows'] = $this->db->count_all('articles');
-        $data['user'] = $this->session->userdata('user');
-        $data['user_info']['status'] = $this->session->userdata('status');
-        $data['user_info']['avatar'] = $this->session->userdata('avatar');
-        
         $config['per_page'] = '5';
         $config['full_tag_open'] = '<ul>';
         $config['full_tag_close'] = '</ul>';
@@ -41,9 +33,7 @@ class Main extends CI_Controller {
         $config['num_tag_close'] = '</li>';
         
         $this->pagination->initialize($config); 
-        
-        $this->load->model('articles_model');
-        
+
         $data['menu'] = $this->pages_model->get_menu();
         $data['page_info'] = $this->pages_model->get_page_info('home');
         $data['categories'] = $this->pages_model->get_cat();
