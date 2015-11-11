@@ -2,10 +2,10 @@
     <div class="top_info">
         <?php if(($page_info['title_url'] != 'register' && $page_info['title_url'] != 'info_login_view')) {?>
         <br /><div class="top_info_right">
-            <p><img class="avatar" src="<?=base_url();?>images/avatars/thumbs/<?=$user_info['avatar'];?>" alt="Avatar"></p>
-            <p>&nbsp;&nbsp;Здравствуйте, <?=$user;?></p>    
+            <img class="avatar" src="<?=base_url();?>images/avatars/thumbs/<?=$user_info['avatar'];?>" alt="Avatar">
+            &nbsp;&nbsp;Здравствуйте, <span class="author_comment"><?=$user;?></span>    
             
-            <p>
+            <p><br/>
                 &nbsp;&nbsp;<a href="<?=base_url();?>index.php/login/logout">Выход</a>&nbsp;&nbsp; 
                 <?php if($page_info['title_url'] != 'cabinet' ){?>| &nbsp;&nbsp; <a href="<?=base_url();?>index.php/cabinet">Дополнительно</a> <?php } ?>
             </p>

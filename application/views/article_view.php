@@ -14,11 +14,12 @@
     <?php if($user) {?>
             
 <!-------------------Output of comments---------------------------------------->        
+
     <?php foreach($comments as $item): ?>
         <div class="left_articles">
-            <p class="author_comment" ><?php echo $user; ?></p>
-            <img src="<?=base_url();?>images/avatars/thumbs/<?=$item['avatar'];?>" alt="" class="image"/>
+            <span class="author_comment"><?=$item['author'];?></span>
             <div class="line"></div>
+            <img class="avatar" src="<?=base_url();?>images/avatars/thumbs/<?=$user_info['avatar'];?>" alt="Avatar">
             <p><?=$item['comment'];?></p>
             <div class="line"></div>
             <p class="date_article">Дата: <?=$item['date'];?>&nbsp;&nbsp; |&nbsp;&nbsp; Время: <?=$item['time'];?></p>
@@ -26,9 +27,9 @@
     <?php endforeach; ?>
 
 <a name="f"></a>
+    <p class="author_comment" ><?php echo $user; ?></p>
         <form method="POST" action="<?=base_url();?>index.php/article/view/<?php echo $page_info['id']; ?>#f">
-            <label><?= $user;?> </label><div class="error"><?=form_error('author');?></div>
-            <input type="hidden" name="author" value="">
+            <input type="hidden" name="author" value="<?php echo $user; ?>">
             <input type="hidden" name="avatar" value="<?= $user_info['avatar']; ?>">
             <input type="hidden" name="id" value="<?php echo $page_info['id']; ?>">
             <input type="hidden" name="category" value="<?php echo $page_info['category']; ?>">
