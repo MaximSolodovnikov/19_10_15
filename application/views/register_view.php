@@ -2,7 +2,7 @@
 
 <form method="POST" action="<?=base_url();?>index.php/login/register" enctype="multipart/form-data">
     <label>Выберете себя аватар</label><div class="error"><?=form_error('avatar');?></div>
-    <input class="input_file" type="file" name="avatar">
+    <input class="input_file" type="file" name="avatar"><br/>
     <label>Логин:</label><div class="error"><?=form_error('username');?></div>
     <input type="text" name="username" placeholder="Введите логин" value="<?=set_value('username');?>">
     <label>Пароль:</label><div class="error"><?=form_error('pswd');?></div>

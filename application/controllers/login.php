@@ -96,11 +96,9 @@ class Login extends CI_Controller {
                     $config['remove_spaces']  = TRUE;
 		
                     $this->load->library('upload', $config);
-                    
                     $this->upload->do_upload('avatar');
 
                     $upload_data = $this->upload->data();
-                
                     $new['avatar'] = $upload_data['file_name'];
 
                     $config['source_image']	= $upload_data['full_path']; 

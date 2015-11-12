@@ -515,6 +515,15 @@ a.nivo-prevNav {
 
 /*------Adminka---------*/
 
+.login_admin {
+    
+    margin: 25% 43%;
+    padding: 10px;
+    width: 14.1%;
+    border: 1px  solid grey;
+    border-radius: 5px;
+}
+
 #left_block {
     padding-top: 100px;
     float: left;

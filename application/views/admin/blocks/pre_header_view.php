@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>Adminka</title>
+    <title>Admin panel</title>
 
     <!-- Bootstrap core CSS -->
     <link href="<?= base_url();?>css/bootstrap3.min.css" rel="stylesheet">
