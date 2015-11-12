@@ -512,3 +512,17 @@ a.nivo-prevNav {
     color:#efe9d1;
     text-decoration:underline;
 }
+
+/*------Adminka---------*/
+
+#left_block {
+    padding-top: 100px;
+    float: left;
+    width:29.9%;
+}
+
+#admin_container {
+    padding-top: 100px;
+    float: right;
+    width:70%;
+}

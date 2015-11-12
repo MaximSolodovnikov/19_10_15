@@ -109,9 +109,9 @@ class Login extends CI_Controller {
                     $config['width']	= 86; 
                     $config['height']	= 86;
 
-                    $this->load->library('image_lib', $config); // загружаем библиотеку 
+                    $this->load->library('image_lib', $config);
 
-                    $this->image_lib->resize(); // и вызываем функцию
+                    $this->image_lib->resize();
 
                     /*-------------------------------------------------*/
                     

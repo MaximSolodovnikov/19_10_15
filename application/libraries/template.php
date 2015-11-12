@@ -1,12 +1,4 @@
-<?php
-
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-defined('BASEPATH') OR exit('No direct script access allowed');
+<?php defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Template {
     
@@ -32,5 +24,16 @@ class Template {
         $CI->load->view('blocks/right_block_view', $data);
         $CI->load->view('blocks/pagination_view');
         $CI->load->view('blocks/footer_view');
+    }
+    
+    function admin_view($name) {
+    
+        $CI =& get_instance();
+        
+        $CI->load->view('admin/blocks/pre_header_view');
+        $CI->load->view('admin/blocks/menu_view');
+        $CI->load->view('admin/blocks/left_block_view');
+        $CI->load->view('admin/' . $name . '_view');
+        $CI->load->view('admin/blocks/footer_view');
     }
 }
