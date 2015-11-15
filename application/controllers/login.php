@@ -96,21 +96,27 @@ class Login extends CI_Controller {
                     $config['remove_spaces']  = TRUE;
 		
                     $this->load->library('upload', $config);
-                    $this->upload->do_upload('avatar');
+                    
+                    if( ! $this->upload->do_upload('avatar'))
+                        {
+                            $new['avatar'] = 'avatar.png';
+                        }
+                        else
+                        {
+                            $upload_data = $this->upload->data();
+                            $new['avatar'] = $upload_data['file_name'];
 
-                    $upload_data = $this->upload->data();
-                    $new['avatar'] = $upload_data['file_name'];
+                            $config['source_image']	= $upload_data['full_path']; 
+                            $config['new_image'] = APPPATH . '../images/avatars/thumbs';
+                            $config['maintain_ratio'] = TRUE; 
+                            $config['width']	= 86; 
+                            $config['height']	= 86;
 
-                    $config['source_image']	= $upload_data['full_path']; 
-                    $config['new_image'] = APPPATH . '../images/avatars/thumbs';
-                    $config['maintain_ratio'] = TRUE; 
-                    $config['width']	= 86; 
-                    $config['height']	= 86;
+                            $this->load->library('image_lib', $config);
 
-                    $this->load->library('image_lib', $config);
-
-                    $this->image_lib->resize();
-
+                            $this->image_lib->resize();
+                        }
+                        
                     /*-------------------------------------------------*/
                     
                     $this->login_model->register_user($new);
