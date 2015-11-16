@@ -26,14 +26,14 @@ class Template {
         $CI->load->view('blocks/footer_view');
     }
     
-    function admin_view($name) {
+    function admin_view($name, $data) {
     
         $CI =& get_instance();
         
         $CI->load->view('admin/blocks/pre_header_view');
         $CI->load->view('admin/blocks/menu_view');
         $CI->load->view('admin/blocks/left_block_view');
-        $CI->load->view('admin/' . $name . '_view');
+        $CI->load->view('admin/' . $name . '_view', $data);
         $CI->load->view('admin/blocks/footer_view');
     }
 }

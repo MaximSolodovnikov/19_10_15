@@ -26,13 +26,13 @@ class Login_model extends CI_Model {
         }
     }
     
-    /*Регистрация нового пользователя*/
+    /*Registration of new user*/
     function register_user($new) {
         
         $this->db->insert('users', $new);
     }
     
-    /*Проверка логина и пароля при авторизации*/
+    /*Checking username and password to login*/
     function check_data_for_authorization($user, $pswd) {
         
         $this->db->where('username', $user);
