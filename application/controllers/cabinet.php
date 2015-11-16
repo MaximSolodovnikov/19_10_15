@@ -5,9 +5,7 @@ class Cabinet extends CI_Controller {
     function __construct() {
         parent::__construct();
         
-            $this->load->library('form_validation');
             $this->load->model('login_model');
-            $this->load->model('rules_model');
             $this->load->model('cabinet_model');
     }
     

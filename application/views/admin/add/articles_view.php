@@ -3,11 +3,24 @@
   <div class="starter-template">
     <h1>Добавление статьи</h1><br />
     <form method="POST" action="">
-        <label>Название статьи:</label><div class="error"></div>
-        <input class="form-control" type="text" name="article" value=""><br /><br />
-        <label>Текст статьи:</label><div class="error"></div>
-        <textarea class="form-control" rows="3"></textarea><br /><br />
-        <input type="submit" class="btn btn-info" name="add_article" value="Добавить статью">
+        <label>Название статьи:</label><div class="error"><?= form_error('title'); ?></div>
+        <input class="form-control" type="text" name="title" value="<?= set_value('title'); ?>"><br /><br />
+        
+        <label>id статьи:</label><div class="error"><?= form_error('id'); ?></div>
+        <input class="form-control" type="text" name="id" value="<?= set_value('id'); ?>"><br /><br />
+        
+        <input type="hidden" name="date" value="<?= date('Y-m-d'); ?>" />
+        
+        <label>Текст статьи:</label><div class="error"><?= form_error('text'); ?></div>
+        <textarea class="form-control" rows="3" name="text"><?= set_value('text'); ?></textarea><br /><br />
+        
+        <label>Ключевые слова:</label><div class="error"><?= form_error('keywords'); ?></div>
+        <textarea class="form-control" rows="3" name="keywords"><?= set_value('keywords'); ?></textarea><br /><br />
+        
+        <label>Категория статьи:</label><div class="error"><?= form_error('category'); ?></div>
+        <input class="form-control" type="text" name="category" value="<?= set_value('category'); ?>"><br /><br />
+        
+        <input type="submit" class="btn btn-info" name="add" value="Добавить статью">
     </form>
   </div>
 

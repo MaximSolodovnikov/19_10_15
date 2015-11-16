@@ -117,5 +117,68 @@ class Rules_model extends CI_Model {
                     'label' => 'email',
                     'rules' => 'required|valid_email'
                 )
+        );
+    
+    /*----------------Rules for Admin panel-----------------*/
+    
+    
+    /*Rules for adding article*/
+    public $articles = array
+        (
+            array
+                (
+                    'field' => 'title',
+                    'label' => 'Название статьи',
+                    'rules' => 'required'
+                ),
+       
+            array
+                (
+                    'field' => 'id',
+                    'label' => 'id',
+                    'rules' => 'required'
+                ),
+            array
+                (
+                    'field' => 'text',
+                    'label' => 'Текст',
+                    'rules' => 'required'
+                ),
+            array
+                (
+                    'field' => 'keywords',
+                    'label' => 'Ключевые слова',
+                    'rules' => 'required'
+                ),
+            array
+                (
+                    'field' => 'category',
+                    'label' => 'Категория статьи',
+                    'rules' => 'required'
+                )
+        );  
+    
+    /*Rules for adding category*/
+    public $categories = array
+        (
+            array
+                (
+                    'field' => 'title',
+                    'label' => 'Название категории',
+                    'rules' => 'required'
+                ),
+
+            array
+                (
+                    'field' => 'title_url',
+                    'label' => 'Название категории (на английском)',
+                    'rules' => 'required'
+                ),
+            array
+                (
+                    'field' => 'keywords',
+                    'label' => 'Ключевые слова',
+                    'rules' => 'required'
+                )
         );   
 }

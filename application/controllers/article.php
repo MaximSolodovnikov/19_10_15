@@ -5,9 +5,7 @@ class Article extends CI_Controller {
     function __construct() {
         parent::__construct();
         
-            $this->load->library('form_validation'); 
             $this->load->model('articles_model');
-            $this->load->model('rules_model');
     }
     
     /*View of one article*/

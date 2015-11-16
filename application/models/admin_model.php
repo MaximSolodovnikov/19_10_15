@@ -18,11 +18,16 @@ class Admin_model extends CI_Model {
         }
     }
     
-    /*Информация о user, принимаем параметр login*/
+    /*info about user*/
     function user_info($user) {
         
         $this->db->where('username', $user);
         $query = $this->db->get('users');
         return $query->row_array();
+    }
+    
+    function add_info($page, $add) {
+        
+        $this->db->insert($page, $add);
     }
 }

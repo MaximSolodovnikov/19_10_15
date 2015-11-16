@@ -7,7 +7,9 @@
         <input class="form-control" type="text" name="page" value=""><br /><br />
         <label>Название страницы (на английском):</label><div class="error"></div>
         <input class="form-control" type="text" name="title_url" value=""><br /><br />
-        <input type="submit" class="btn btn-info" name="add_page" value="Добавить страницу">
+        <label>Ключевые слова:</label><div class="error"></div>
+        <textarea class="form-control" rows="3"></textarea><br /><br />
+        <input type="submit" class="btn btn-info" name="add" value="Добавить страницу">
     </form>
   </div>
 

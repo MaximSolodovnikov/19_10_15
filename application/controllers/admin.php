@@ -53,12 +53,33 @@ class Admin extends CI_Controller {
     function add($page) {
         
         $data['user'] = $this->session->userdata('user');
-        /*$data['user_info']['status'] = $this->session->userdata('status');*/
-        /*$data['user_info']['avatar'] = $this->session->userdata('avatar');*/
         $data['info'] = '';
- 
-            $name = 'add/' . $page;
-            $this->template->admin_view($name, $data);
+        if($data['user'] == 'admin') {
+            
+            $this->form_validation->set_rules($this->rules_model->$page);
+            if($this->form_validation->run() && $this->input->post('add')) {
+                
+                $add['id'] = $this->input->post('id');
+                $add['title'] = $this->input->post('title');
+                $add['date'] = $this->input->post('date');
+                $add['text'] = $this->input->post('text');
+                $add['keywords'] = $this->input->post('keywords');
+                $add['category'] = $this->input->post('category');
+                
+                $this->admin_model->add_info($page, $add);
+                redirect(base_url() . 'index.php/admin');
+            }
+            else {
+                
+                $name = 'add/' . $page;
+                $this->template->admin_view($name, $data);
+            }
+        }
+        else {
+            
+            redirect(base_url() . 'index.php/admin');
+        }
+            
 
     }
 }
