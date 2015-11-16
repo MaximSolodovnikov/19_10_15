@@ -31,8 +31,8 @@ class Template {
         $CI =& get_instance();
         
         $CI->load->view('admin/blocks/pre_header_view');
-        $CI->load->view('admin/blocks/menu_view');
-        $CI->load->view('admin/blocks/left_block_view');
+        $CI->load->view('admin/blocks/menu_view', $data);
+        $CI->load->view('admin/blocks/left_block_view', $data);
         $CI->load->view('admin/' . $name . '_view', $data);
         $CI->load->view('admin/blocks/footer_view');
     }

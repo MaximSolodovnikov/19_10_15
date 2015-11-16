@@ -1,16 +1,16 @@
 <div id="left_block">
     <ul><span>Статьи:</span>
-      <li><a href="#">item</a></li>
+      <li><a href="<?= base_url(); ?>index.php/admin/add/articles">Добавить</a></li>
       <li><a href="#">item</a></li>
       <li><a href="#">item</a></li>
     </ul>
     <ul><span>Категории статей:</span>
-      <li><a href="#">item</a></li>
+      <li><a href="<?= base_url(); ?>index.php/admin/add/categories">Добавить</a></li>
       <li><a href="#">item</a></li>
       <li><a href="#">item</a></li>
     </ul>
     <ul><span>Страницы:</span>
-      <li><a href="#">item</a></li>
+      <li><a href="<?= base_url(); ?>index.php/admin/add/pages">Добавить</a></li>
       <li><a href="#">item</a></li>
       <li><a href="#">item</a></li>
     </ul>

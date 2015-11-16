@@ -9,7 +9,7 @@
     </head>
     <body>
         
-        <div class="login_admin">
+        <div class="login_admin"><br />
             <div class="error"><?= $info; ?></div><br />
             <form method="POST" action="">
                 <label>Логин:</label><div class="error"></div>

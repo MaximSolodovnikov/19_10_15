@@ -38,6 +38,7 @@ class Admin extends CI_Controller {
             }
             else {
                 
+                $data['info'] = "У Вас нет прав доступа.";
                 $this->load->view('admin/login_view', $data);
             }
         }
@@ -46,5 +47,18 @@ class Admin extends CI_Controller {
             $name = 'main';
             $this->template->admin_view($name, $data);
         }
+    }
+    
+    /*$page - parameter that we want to add (article, category or page)*/
+    function add($page) {
+        
+        $data['user'] = $this->session->userdata('user');
+        /*$data['user_info']['status'] = $this->session->userdata('status');*/
+        /*$data['user_info']['avatar'] = $this->session->userdata('avatar');*/
+        $data['info'] = '';
+ 
+            $name = 'add/' . $page;
+            $this->template->admin_view($name, $data);
+
     }
 }
