@@ -19,7 +19,7 @@ class Rules_model extends CI_Model {
                     'rules' => 'required'
                 )
         );
-    /*Правила для регистрации нового пользователя*/
+    /*Rules for registration of new user*/
     public $reg_rules = array
         (
             array
@@ -57,7 +57,7 @@ class Rules_model extends CI_Model {
                     'rules' => 'required'
                 )
         );
-    /*Правила для изменения пароля*/
+    /*Rules for changing of password*/
     public $change_pswd_rules = array
         (
             array
@@ -83,7 +83,7 @@ class Rules_model extends CI_Model {
                 )
         );   
     
-    /*Правила для изменения email*/
+    /*Rules for changing of email*/
     public $change_email_rules = array
         (
             array
@@ -101,7 +101,7 @@ class Rules_model extends CI_Model {
                 )
         );
     
-    /*Правила для восстановления пароля*/
+    /*Rules for password recovery*/
     public $forgot_pswd_rules = array
         (
             array
@@ -178,6 +178,30 @@ class Rules_model extends CI_Model {
                 (
                     'field' => 'keywords',
                     'label' => 'Ключевые слова',
+                    'rules' => 'required'
+                )
+        );   
+    
+    /*Rules for adding category*/
+    public $users = array
+        (
+            array
+                (
+                    'field' => 'username',
+                    'label' => 'Логин',
+                    'rules' => 'required'
+                ),
+
+            array
+                (
+                    'field' => 'password',
+                    'label' => 'Пароль',
+                    'rules' => 'required'
+                ),
+            array
+                (
+                    'field' => 'email',
+                    'label' => 'Эл.почта',
                     'rules' => 'required'
                 )
         );   

@@ -161,4 +161,23 @@ class Admin extends CI_Controller {
             redirect(base_url() . 'index.php/admin');
         }
     }
+    
+    function userlist() {
+        
+        $data['user'] = $this->session->userdata('user');
+        $data['categories'] = $this->admin_model->get_cat();
+        $data['info'] = '';
+        if($data['user'] == 'admin') {
+            
+            $data['user'] = $this->admin_model->get_userlist();
+            
+            $name = 'edit/userlist';
+            
+            $this->template->admin_view($name, $data);
+        }
+        else {
+            
+            redirect(base_url() . 'index.php/admin');
+        }
+    }
 }

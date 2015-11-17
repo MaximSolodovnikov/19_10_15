@@ -61,4 +61,12 @@ class Admin_model extends CI_Model {
         $this->db->where('id', $id);
         $this->db->update($page, $edit);
     }
+    
+    /*Displays list of users to userlist_view*/
+    function get_userlist() {
+        
+        $this->db->order_by('id', 'desc');
+        $query = $this->db->get('users');
+        return $query->result_array();
+    }
 }

@@ -10,9 +10,9 @@
       <li><a href="#">item</a></li>
     </ul>
     <ul><span>Пользователи:</span>
-      <li><a href="#">item</a></li>
+      <li><a href="<?= base_url(); ?>index.php/admin/userlist">Все пользователи</a></li>
     </ul>
     <ul><span>Комментраии:</span>
-      <li><a href="#">item</a></li>
+      <li><a href="#">Все комментарии</a></li>
     </ul>
 </div>
