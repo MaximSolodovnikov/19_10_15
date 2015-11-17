@@ -120,7 +120,7 @@ class Admin extends CI_Controller {
         }
     }
     
-    function edit($page, $id) /*?????*/ {
+    function edit($page, $id) {
         
         $data['user'] = $this->session->userdata('user');
         $data['categories'] = $this->admin_model->get_cat();
@@ -129,7 +129,7 @@ class Admin extends CI_Controller {
         if($data['user'] == 'admin') {
             
             $this->form_validation->set_rules($this->rules_model->$page);
-            if($this->form_validation->run() && $this->input->post('add')) {
+            if($this->form_validation->run() && $this->input->post('edit')) {
                 
                 $edit['id'] = $this->input->post('id');
                 $edit['title'] = $this->input->post('title');
@@ -140,10 +140,10 @@ class Admin extends CI_Controller {
                 $edit['category'] = $this->input->post('category');
                 
                 /*Deleting of empty elements of array for adding category to database*/
-                foreach($add as $key => $val) {
+                foreach($edit as $key => $val) {
                     
-                    if( ! $add[$key]) {
-                        unset($add[$key]);
+                    if( ! $edit[$key]) {
+                        unset($edit[$key]);
                     }
                 }
                 /*-------------------------------------------------------------*/

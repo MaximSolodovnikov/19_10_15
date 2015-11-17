@@ -26,6 +26,7 @@ class Admin_model extends CI_Model {
         return $query->row_array();
     }
     
+    /*Added info about article or categories to database*/
     function add_info($page, $add) {
         
         $this->db->insert($page, $add);
@@ -38,6 +39,7 @@ class Admin_model extends CI_Model {
         return $query->result_array();
     }
     
+    /*Displays list of articles or categories to editlist_view*/
     function get_editlist($page) {
         
         $this->db->order_by('id', 'desc');
@@ -45,10 +47,18 @@ class Admin_model extends CI_Model {
         return $query->result_array();
     }
     
+    /*Output specific info about article or category*/
     function get_info_data($page, $id) {
         
         $this->db->where('id', $id);
         $query = $this->db->get($page);
         return $query->row_array();
+    }
+    
+    /*Editing info in specific article or categoty*/
+    function edit_info($page, $id, $edit) {
+        
+        $this->db->where('id', $id);
+        $this->db->update($page, $edit);
     }
 }
