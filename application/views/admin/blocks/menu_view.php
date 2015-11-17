@@ -7,12 +7,12 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="<?= base_url(); ?>index.php/admin">ADMINKA</a>
+      <a class="navbar-brand" href="<?= base_url(); ?>index.php/admin">ADMINKA for <?= $user; ?></a>
     </div>
     <div id="navbar" class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
         <li class="active"><a href="<?= base_url(); ?>">На сайт</a></li>
-        <li><a href="#">Выход из админки</a></li>
+        <li><a href="<?= base_url(); ?>index.php/login/logout">Выход из админки</a></li>
       </ul>
     </div><!--/.nav-collapse -->
   </div>

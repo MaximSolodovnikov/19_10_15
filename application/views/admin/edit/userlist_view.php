@@ -10,7 +10,7 @@
           </tr>
         </thead>
         <tbody>
-            <?php foreach($user as $item): ?>
+            <?php foreach($user_info as $item): ?>
                 <tr>
                     <td><a href="<?= base_url(); ?>index.php/admin/edit/users/<?= $item['id']; ?>"><?= $item['username']; ?></a></td>
                     <td><img src="<?= base_url();?>images/avatars/thumbs/<?= $item['avatar']; ?>" alt="avatar" /></td>

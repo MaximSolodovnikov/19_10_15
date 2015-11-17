@@ -139,6 +139,11 @@ class Admin extends CI_Controller {
                 $edit['keywords'] = $this->input->post('keywords');
                 $edit['category'] = $this->input->post('category');
                 
+                $edit['username'] = $this->input->post('username');
+                $edit['password'] = $this->input->post('password');
+                $edit['email'] = $this->input->post('email');
+                $edit['avatar'] = $this->input->post('avatar');
+                
                 /*Deleting of empty elements of array for adding category to database*/
                 foreach($edit as $key => $val) {
                     
@@ -169,7 +174,7 @@ class Admin extends CI_Controller {
         $data['info'] = '';
         if($data['user'] == 'admin') {
             
-            $data['user'] = $this->admin_model->get_userlist();
+            $data['user_info'] = $this->admin_model->get_userlist();
             
             $name = 'edit/userlist';
             
