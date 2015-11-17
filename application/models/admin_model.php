@@ -31,9 +31,24 @@ class Admin_model extends CI_Model {
         $this->db->insert($page, $add);
     }
     
+    /*Output of categories when adding article in tag select */
     function get_cat() {
         
         $query = $this->db->get('categories');
         return $query->result_array();
+    }
+    
+    function get_editlist($page) {
+        
+        $this->db->order_by('id', 'desc');
+        $query = $this->db->get($page);
+        return $query->result_array();
+    }
+    
+    function get_info_data($page, $id) {
+        
+        $this->db->where('id', $id);
+        $query = $this->db->get($page);
+        return $query->row_array();
     }
 }

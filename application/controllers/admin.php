@@ -89,7 +89,76 @@ class Admin extends CI_Controller {
             
             redirect(base_url() . 'index.php/admin');
         }
+    }
+    
+    function editlist($page) {
+        
+        $data['user'] = $this->session->userdata('user');
+        $data['categories'] = $this->admin_model->get_cat();
+        $data['info'] = '';
+        if($data['user'] == 'admin') {
             
-
+            $data['page'] = $page; /*need in link for output of article or category in editlist_view*/
+            $data['edit'] = $this->admin_model->get_editlist($page);
+            
+            /*Output of titles (Edit list of article(category) in header of editlist_view.*/
+            
+            if($page == 'articles') {
+                $data['info'] = 'статей';
+            }
+            if($page == 'categories') {
+                $data['info'] = 'категорий';
+            }
+            /*------------------------------------*/
+            $name = 'edit/editlist';
+            
+            $this->template->admin_view($name, $data);
+        }
+        else {
+            
+            redirect(base_url() . 'index.php/admin');
+        }
+    }
+    
+    function edit($page, $id) /*?????*/ {
+        
+        $data['user'] = $this->session->userdata('user');
+        $data['categories'] = $this->admin_model->get_cat();
+        $data['info_about_data'] = $this->admin_model->get_info_data($page, $id);
+        $data['info'] = '';
+        if($data['user'] == 'admin') {
+            
+            $this->form_validation->set_rules($this->rules_model->$page);
+            if($this->form_validation->run() && $this->input->post('add')) {
+                
+                $edit['id'] = $this->input->post('id');
+                $edit['title'] = $this->input->post('title');
+                $edit['title_url'] = $this->input->post('title_url');
+                $edit['date'] = $this->input->post('date');
+                $edit['text'] = $this->input->post('text');
+                $edit['keywords'] = $this->input->post('keywords');
+                $edit['category'] = $this->input->post('category');
+                
+                /*Deleting of empty elements of array for adding category to database*/
+                foreach($add as $key => $val) {
+                    
+                    if( ! $add[$key]) {
+                        unset($add[$key]);
+                    }
+                }
+                /*-------------------------------------------------------------*/
+                $this->admin_model->edit_info($page, $id, $edit);
+                redirect(base_url() . 'index.php/admin');
+            }
+            else {
+                
+                $name = 'edit/' . $page;
+                $this->template->admin_view($name, $data);
+            }
+        }
+        else {
+            
+            redirect(base_url() . 'index.php/admin');
+        }
     }
 }
