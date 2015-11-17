@@ -30,4 +30,10 @@ class Admin_model extends CI_Model {
         
         $this->db->insert($page, $add);
     }
+    
+    function get_cat() {
+        
+        $query = $this->db->get('categories');
+        return $query->result_array();
+    }
 }

@@ -53,6 +53,7 @@ class Admin extends CI_Controller {
     function add($page) {
         
         $data['user'] = $this->session->userdata('user');
+        $data['categories'] = $this->admin_model->get_cat();
         $data['info'] = '';
         if($data['user'] == 'admin') {
             

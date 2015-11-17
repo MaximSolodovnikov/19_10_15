@@ -18,7 +18,11 @@
         <textarea class="form-control" rows="3" name="keywords"><?= set_value('keywords'); ?></textarea><br /><br />
         
         <label>Категория статьи:</label><div class="error"><?= form_error('category'); ?></div>
-        <input class="form-control" type="text" name="category" value="<?= set_value('category'); ?>"><br /><br />
+        <select class="form-control" name="category">
+            <?php foreach($categories as $item): ?>
+                <option value="<?= $item['title_url']; ?>"><?= $item['title']; ?></option>
+            <?php endforeach; ?>
+        </select><br /><br />
         
         <input type="submit" class="btn btn-info" name="add" value="Добавить статью">
     </form>

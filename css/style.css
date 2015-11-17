@@ -523,7 +523,7 @@ a.nivo-prevNav {
 
 .login_admin {
     
-    margin: 25% 43%;
+    margin: 20% 42%;
     padding-left: 2.5%;
     width: 19.1%;
     border: 1px  solid grey;
@@ -541,7 +541,7 @@ a.nivo-prevNav {
 }
 
 #admin_container {
-    padding-top: 100px;
+    padding-top: 70px;
     float: left;
     width:50%;
 }
