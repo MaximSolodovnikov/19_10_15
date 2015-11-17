@@ -62,11 +62,20 @@ class Admin extends CI_Controller {
                 
                 $add['id'] = $this->input->post('id');
                 $add['title'] = $this->input->post('title');
+                $add['title_url'] = $this->input->post('title_url');
                 $add['date'] = $this->input->post('date');
                 $add['text'] = $this->input->post('text');
                 $add['keywords'] = $this->input->post('keywords');
                 $add['category'] = $this->input->post('category');
                 
+                /*Deleting of empty elements of array for adding category to database*/
+                foreach($add as $key => $val) {
+                    
+                    if( ! $add[$key]) {
+                        unset($add[$key]);
+                    }
+                }
+                /*-------------------------------------------------------------*/
                 $this->admin_model->add_info($page, $add);
                 redirect(base_url() . 'index.php/admin');
             }
