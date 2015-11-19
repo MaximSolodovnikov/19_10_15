@@ -185,4 +185,41 @@ class Admin extends CI_Controller {
             redirect(base_url() . 'index.php/admin');
         }
     }
+    
+    function del($page) {
+        
+        $data['user'] = $this->session->userdata('user');
+        $data['categories'] = $this->admin_model->get_cat();
+        $data['info'] = '';
+        if($data['user'] == 'admin') {
+            
+            $data['edit'] = $this->admin_model->get_editlist($page);
+            if($this->input->post('del')) {
+
+                $this->admin_model->del_info($page, $id);
+                redirect(base_url() . 'index.php/admin');
+            }
+            else {
+                
+                if($page == 'comments') $name = 'del/comments';
+                else $name = 'del/dellist';
+                
+                /*Output of titles (Edit list of article(category) in header of editlist_view.*/
+            
+                if($page == 'articles') {
+                    $data['info'] = 'статей';
+                }
+                if($page == 'categories') {
+                    $data['info'] = 'категорий';
+                }
+                /*------------------------------------*/
+                
+                $this->template->admin_view($name, $data);
+            }
+        }
+        else {
+            
+            redirect(base_url() . 'index.php/admin');
+        }
+    }
 }
