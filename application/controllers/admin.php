@@ -44,6 +44,12 @@ class Admin extends CI_Controller {
         }
         else {
             
+            $data['stat'] = array(
+                'articles' => $this->db->count_all_results('articles'),
+                'users' => $this->db->count_all_results('users'),
+                'comments' => $this->db->count_all_results('comments')
+            );
+            
             $name = 'main';
             $this->template->admin_view($name, $data);
         }
@@ -196,6 +202,7 @@ class Admin extends CI_Controller {
             $data['edit'] = $this->admin_model->get_editlist($page);
             if($this->input->post('del')) {
 
+                $id = $this->input->post('id');
                 $this->admin_model->del_info($page, $id);
                 redirect(base_url() . 'index.php/admin');
             }

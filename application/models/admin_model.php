@@ -69,4 +69,10 @@ class Admin_model extends CI_Model {
         $query = $this->db->get('users');
         return $query->result_array();
     }
+    
+    function del_info($page, $id) {
+        
+        $this->db->where('id', $id);
+        $this->db->delete($page);
+    }
 }

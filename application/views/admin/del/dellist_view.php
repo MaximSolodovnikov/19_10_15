@@ -4,8 +4,7 @@
         <caption></caption>
         <thead>
           <tr class="info">
-            <th>Название</th>
-            <th>Дата и время</th>
+            <th>Заголовок</th>
             <th>Удалить или помиловать</th>
           </tr>
         </thead>
@@ -15,11 +14,9 @@
         <form method="POST" action="">
             <tr>
                 <td><?= $item['title']; ?></td>
-                <td><?= $item['date']; ?> / <?= $item['time']; ?></td>
-               
-                <th><input type="submit" name="del" value="Удалить" /></th>
-                <input type="hidden" name="id" value="<?= $item['id']; ?>" />
+                <td><input type="submit" name="del" value="Удалить" /></td>
             </tr>
+            <input type="hidden" name="id" value="<?= $item['id']; ?>" />
         </form>
                 
             <?php endforeach; ?>

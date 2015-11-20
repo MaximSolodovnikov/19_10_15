@@ -13,6 +13,6 @@
       <li><a href="<?= base_url(); ?>index.php/admin/userlist">Все пользователи</a></li>
     </ul>
     <ul><span>Комментраии:</span>
-      <li><a href="<?= base_url(); ?>index.php/admin/del/comments">Удалить</a></li>
+      <li><a href="<?= base_url(); ?>index.php/admin/del/comments">Список комментариев</a></li>
     </ul>
 </div>
