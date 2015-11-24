@@ -18,6 +18,8 @@ class Pages_model extends CI_Model {
 
     function get_cat() {
 
+        $this->db->order_by('id', 'desc');
+        $this->db->limit('12');
         $query = $this->db->get('categories');
         return $query->result_array();
     }

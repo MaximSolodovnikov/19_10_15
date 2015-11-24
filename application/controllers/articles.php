@@ -59,6 +59,11 @@ class Articles extends CI_Controller {
         $data['user_info']['status'] = $this->session->userdata('status');
         $data['user_info']['avatar'] = $this->session->userdata('avatar');
         $name = 'articles';
+        
+        if($name != 'articles') {
+            
+            $name = 'no_articles';
+        }
         $this->template->get_view($data, $name);
     }
 }
