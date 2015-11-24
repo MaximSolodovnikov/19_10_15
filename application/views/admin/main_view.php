@@ -16,11 +16,11 @@
                 <td><?= $stat['articles']; ?></td>
             </tr>
             <tr>
-                <td><a href="<?= base_url();?>index.php/admin/admin/userlist">Пользователи</a></td>
+                <td><a href="<?= base_url();?>index.php/admin/userlist">Пользователи</a></td>
                 <td><?= $stat['users']; ?></td>
             </tr>
             <tr>
-                <td><a href="<?= base_url();?>index.php/admin/admin/del/comments">Комментарии</a></td>
+                <td><a href="<?= base_url();?>index.php/admin/del/comments">Комментарии</a></td>
                 <td><?= $stat['comments']; ?></td>
             </tr>
         </tbody>

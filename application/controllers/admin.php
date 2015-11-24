@@ -66,6 +66,36 @@ class Admin extends CI_Controller {
             $this->form_validation->set_rules($this->rules_model->$page);
             if($this->form_validation->run() && $this->input->post('add')) {
                 
+                if($page == 'articles') {
+                    
+                    $config['upload_path'] = './images/articles/';
+                    $config['allowed_types'] = 'gif|jpg|png';
+                    $config['max_size']	= '1000';
+                    $config['encrypt_name']  = TRUE;
+                    $config['remove_spaces']  = TRUE;
+		
+                    $this->load->library('upload', $config);
+                    
+                    if( ! $this->upload->do_upload('userfile')) {
+                            
+                            $add['img'] = 'default_article.png';
+                    }
+                    else {
+                            
+                        $upload_data = $this->upload->data();
+                        $add['img'] = $upload_data['file_name'];
+
+                        $config['source_image']	= $upload_data['full_path']; 
+                        $config['new_image'] = APPPATH . '../images/articles/thumbs';
+                        $config['maintain_ratio'] = TRUE; 
+                        $config['width']	= 48; 
+                        $config['height']	= 48;
+
+                        $this->load->library('image_lib', $config);
+
+                        $this->image_lib->resize();
+                    }
+                }
                 $add['id'] = $this->input->post('id');
                 $add['title'] = $this->input->post('title');
                 $add['title_url'] = $this->input->post('title_url');
