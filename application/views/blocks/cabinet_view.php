@@ -2,7 +2,7 @@
     <div class="top_info">
         <?php if(($page_info['title_url'] != 'register' && $page_info['title_url'] != 'info_login_view')) {?>
         <br /><div class="top_info_right">
-            <img class="avatar" src="<?=base_url();?>images/avatars/thumbs/<?=$user_info['avatar'];?>" alt="Avatar">
+            <img class="avatar" src="<?=base_url();?>images/avatars/thumbs/<?=$user_info['avatar'];?>" alt="avatar">
             &nbsp;&nbsp;Здравствуйте, <span class="author_comment"><?=$user;?></span>    
             
             <p><br/>
@@ -34,7 +34,7 @@
 			echo date('d ' . $months[$month] . ' Y');?>
 			
 			</b>&nbsp;&nbsp;&nbsp;&nbsp;
-            <a href="" class="active">Русский</a>&nbsp;|&nbsp;<a href="">Украинский</a></p>
+            </p>
             <p><a class="title" href="<?=base_url();?>" title="Мой сад и огород">Мой сад и огород</a><p/>
         </div>
     </div>

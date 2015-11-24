@@ -7,3 +7,5 @@
     <input type="password" name="pswd" placeholder="Введите пароль" value=""><br />
     <input type="submit" class="btn btn-info" name="enter" value="Вход">
 </form>
+<a href="<?=base_url();?>index.php/login/register">Регистрация</a> | 
+<a href="<?=base_url();?>index.php/login/forgot_pswd">Забыли пароль</a>?

@@ -1,4 +1,5 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
+require_once 'config/config.php';
 
 class Admin extends CI_Controller {
     
@@ -9,7 +10,7 @@ class Admin extends CI_Controller {
         $data['user_info']['avatar'] = $this->session->userdata('avatar');
         $data['info'] = '';
 
-        if($data['user'] != 'admin') {
+        if($data['user'] != IS_ADMIN) {
             
             if($this->input->post('enter')) {
                 
@@ -61,7 +62,7 @@ class Admin extends CI_Controller {
         $data['user'] = $this->session->userdata('user');
         $data['categories'] = $this->admin_model->get_cat();
         $data['info'] = '';
-        if($data['user'] == 'admin') {
+        if($data['user'] == IS_ADMIN) {
             
             $this->form_validation->set_rules($this->rules_model->$page);
             if($this->form_validation->run() && $this->input->post('add')) {
@@ -132,7 +133,7 @@ class Admin extends CI_Controller {
         $data['user'] = $this->session->userdata('user');
         $data['categories'] = $this->admin_model->get_cat();
         $data['info'] = '';
-        if($data['user'] == 'admin') {
+        if($data['user'] == IS_ADMIN) {
             
             $data['page'] = $page; /*need in link for output of article or category in editlist_view*/
             $data['edit'] = $this->admin_model->get_editlist($page);
@@ -162,7 +163,7 @@ class Admin extends CI_Controller {
         $data['categories'] = $this->admin_model->get_cat();
         $data['info_about_data'] = $this->admin_model->get_info_data($page, $id);
         $data['info'] = '';
-        if($data['user'] == 'admin') {
+        if($data['user'] == IS_ADMIN) {
             
             $this->form_validation->set_rules($this->rules_model->$page);
             if($this->form_validation->run() && $this->input->post('edit')) {
@@ -208,7 +209,7 @@ class Admin extends CI_Controller {
         $data['user'] = $this->session->userdata('user');
         $data['categories'] = $this->admin_model->get_cat();
         $data['info'] = '';
-        if($data['user'] == 'admin') {
+        if($data['user'] == IS_ADMIN) {
             
             $data['user_info'] = $this->admin_model->get_userlist();
             
@@ -227,7 +228,7 @@ class Admin extends CI_Controller {
         $data['user'] = $this->session->userdata('user');
         $data['categories'] = $this->admin_model->get_cat();
         $data['info'] = '';
-        if($data['user'] == 'admin') {
+        if($data['user'] == IS_ADMIN) {
             
             $data['edit'] = $this->admin_model->get_editlist($page);
             if($this->input->post('del')) {

@@ -107,8 +107,8 @@ class Login extends CI_Controller {
                             $config['source_image']	= $upload_data['full_path']; 
                             $config['new_image'] = APPPATH . '../images/avatars/thumbs';
                             $config['maintain_ratio'] = TRUE; 
-                            $config['width']	= 48; 
-                            $config['height']	= 48;
+                            $config['width']	= 46; 
+                            $config['height']	= 46;
 
                             $this->load->library('image_lib', $config);
 

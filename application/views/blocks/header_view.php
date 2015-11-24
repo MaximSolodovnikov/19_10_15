@@ -36,7 +36,7 @@
 			echo date('d ' . $months[$month] . ' Y');?>
 			
 			</b>&nbsp;&nbsp;&nbsp;&nbsp;
-            <a href="" class="active">Русский</a>&nbsp;|&nbsp;<a href="">Украинский</a></p>
+            </p>
             <p><a class="title" href="<?=base_url();?>" title="Мой сад и огород">Мой сад и огород</a><p/>
         </div>
     </div>
