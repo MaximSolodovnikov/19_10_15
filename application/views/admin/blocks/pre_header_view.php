@@ -16,7 +16,8 @@
 
     <!-- Custom styles for this template -->
     <link href="<?= base_url();?>css/style.css" rel="stylesheet">
-
+    <!-- ckeditor -->
+    <script src="//cdn.ckeditor.com/4.5.5/standard/ckeditor.js"></script>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>

@@ -28,6 +28,11 @@
         
         <input type="submit" class="btn btn-info" name="edit" value="Редактировать статью">
     </form>
+    
+    <script type="text/javascript">
+        CKEDITOR.replace( 'text' );
+    </script>
+    
   </div>
 
 </div><!-- /.container -->

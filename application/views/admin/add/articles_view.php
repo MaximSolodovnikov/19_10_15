@@ -28,7 +28,13 @@
         </select><br /><br />
         
         <input type="submit" class="btn btn-info" name="add" value="Добавить статью">
+        
     </form>
+   
+    <script type="text/javascript">
+        CKEDITOR.replace( 'text' );
+    </script>
+    
   </div>
 
 </div><!-- /.container -->
