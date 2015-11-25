@@ -28,7 +28,6 @@ class Login extends CI_Controller {
                 $data['user_info'] = $this->login_model->user_info($username);
                 $ses_data = array(
                     'user' => $username,
-                    /*'status' => $data['user_info']['status'],*/
                     'avatar' => $data['user_info']['avatar']
                 );
                 
@@ -140,7 +139,6 @@ class Login extends CI_Controller {
     function logout() {
         
         $this->session->unset_userdata('user');
-        /*$this->session->unset_userdata('status');*/
         $this->session->unset_userdata('avatar');
         redirect(base_url());
     }

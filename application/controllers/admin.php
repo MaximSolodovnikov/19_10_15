@@ -6,7 +6,6 @@ class Admin extends CI_Controller {
     function index() {
 
         $data['user'] = $this->session->userdata('user');
-        /*$data['user_info']['status'] = $this->session->userdata('status');*/
         $data['user_info']['avatar'] = $this->session->userdata('avatar');
         $data['info'] = '';
 
@@ -24,7 +23,6 @@ class Admin extends CI_Controller {
                     $ses_data = array(
                         
                         'user' => $login,
-                        /*'status' => $data['user_info']['status'],*/
                         'avatar' => $data['user_info']['avatar']
                     );
                     

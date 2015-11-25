@@ -13,7 +13,6 @@ class Cabinet extends CI_Controller {
         
         $data['page_info'] = $this->login_model->get_info('cabinet'); 
         $data['user'] = $this->session->userdata('user');
-        /*$data['user_info']['status'] = $this->session->userdata('status');*/
         $data['user_info']['avatar'] = $this->session->userdata('avatar');
         $name = 'info_cabinet';
         $data['error'] = '';
@@ -24,7 +23,6 @@ class Cabinet extends CI_Controller {
         
         $data['page_info'] = $this->login_model->get_info('password'); 
         $data['user'] = $this->session->userdata('user');
-        /*$data['user_info']['status'] = $this->session->userdata('status');*/
         $data['user_info']['avatar'] = $this->session->userdata('avatar');
         $data['error'] = '';
         
@@ -87,7 +85,6 @@ class Cabinet extends CI_Controller {
         
         $data['page_info'] = $this->login_model->get_info('email'); 
         $data['user'] = $this->session->userdata('user');
-        /*$data['user_info']['status'] = $this->session->userdata('status');*/
         $data['user_info']['avatar'] = $this->session->userdata('avatar');
         $data['error'] = '';
         
@@ -133,7 +130,6 @@ class Cabinet extends CI_Controller {
         
         $data['page_info'] = $this->login_model->get_info('avatar'); 
         $data['user'] = $this->session->userdata('user');
-        /*$data['user_info']['status'] = $this->session->userdata('status');*/
         $data['user_info']['avatar'] = $this->session->userdata('avatar');
         $data['error'] = '';
         
@@ -174,9 +170,9 @@ class Cabinet extends CI_Controller {
                     $config['width']	= 48; 
                     $config['height']	= 48;
 
-                    $this->load->library('image_lib', $config); // загружаем библиотеку 
+                    $this->load->library('image_lib', $config);
 
-                    $this->image_lib->resize(); // и вызываем функцию
+                    $this->image_lib->resize();
 
                     $data['error'] = "Аватар успешно изменен";    
                     $name = 'info_cabinet';
