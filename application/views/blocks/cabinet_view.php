@@ -35,7 +35,7 @@
 			
 			</b>&nbsp;&nbsp;&nbsp;&nbsp;
             </p>
-            <p><a class="title" href="<?=base_url();?>" title="Мой сад и огород">Мой сад и огород</a><p/>
+            <a href="<?= base_url(); ?>"class="title_logo"><span class="title">Катя Катерина - </span><br /><span class="title_sub_logo">нарисована картина</span></a>
         </div>
     </div>
 </div>

@@ -6,7 +6,7 @@ class Admin extends CI_Controller {
     function index() {
 
         $data['user'] = $this->session->userdata('user');
-        $data['user_info']['status'] = $this->session->userdata('status');
+        /*$data['user_info']['status'] = $this->session->userdata('status');*/
         $data['user_info']['avatar'] = $this->session->userdata('avatar');
         $data['info'] = '';
 
@@ -24,7 +24,7 @@ class Admin extends CI_Controller {
                     $ses_data = array(
                         
                         'user' => $login,
-                        'status' => $data['user_info']['status'],
+                        /*'status' => $data['user_info']['status'],*/
                         'avatar' => $data['user_info']['avatar']
                     );
                     
@@ -56,7 +56,7 @@ class Admin extends CI_Controller {
         }
     }
     
-    /*$page - parameter that we want to add (article, category or page)*/
+/*$page - parameter that we want to add (article, category or page)*/
     function add($page) {
         
         $data['user'] = $this->session->userdata('user');
@@ -67,6 +67,7 @@ class Admin extends CI_Controller {
             $this->form_validation->set_rules($this->rules_model->$page);
             if($this->form_validation->run() && $this->input->post('add')) {
                 
+/*Adding main picture of article*/
                 if($page == 'articles') {
                     
                     $config['upload_path'] = './images/articles/';
@@ -97,6 +98,7 @@ class Admin extends CI_Controller {
                         $this->image_lib->resize();
                     }
                 }
+/*-------------------------------------*/
                 $add['id'] = $this->input->post('id');
                 $add['title'] = $this->input->post('title');
                 $add['title_url'] = $this->input->post('title_url');
@@ -105,7 +107,7 @@ class Admin extends CI_Controller {
                 $add['keywords'] = $this->input->post('keywords');
                 $add['category'] = $this->input->post('category');
                 
-                /*Deleting of empty elements of array for adding category to database*/
+/*Deleting of empty elements of array for adding category to database*/
                 foreach($add as $key => $val) {
                     
                     if( ! $add[$key]) {
@@ -138,7 +140,7 @@ class Admin extends CI_Controller {
             $data['page'] = $page; /*need in link for output of article or category in editlist_view*/
             $data['edit'] = $this->admin_model->get_editlist($page);
             
-            /*Output of titles (Edit list of article(category) in header of editlist_view.*/
+/*Output of titles (Edit list of article(category) in header of editlist_view.*/
             
             if($page == 'articles') {
                 $data['info'] = 'статей';
@@ -146,7 +148,7 @@ class Admin extends CI_Controller {
             if($page == 'categories') {
                 $data['info'] = 'категорий';
             }
-            /*------------------------------------*/
+/*------------------------------------*/
             $name = 'edit/editlist';
             
             $this->template->admin_view($name, $data);
@@ -168,6 +170,38 @@ class Admin extends CI_Controller {
             $this->form_validation->set_rules($this->rules_model->$page);
             if($this->form_validation->run() && $this->input->post('edit')) {
                 
+/*Editing main picture of article*/
+                if($page == 'articles') {
+                    
+                    $config['upload_path'] = './images/articles/';
+                    $config['allowed_types'] = 'gif|jpg|png';
+                    $config['max_size']	= '1000';
+                    $config['encrypt_name']  = TRUE;
+                    $config['remove_spaces']  = TRUE;
+		
+                    $this->load->library('upload', $config);
+                    
+                    if( ! $this->upload->do_upload('userfile')) {
+                            
+                            $edit['img'] = 'default_article.png';
+                    }
+                    else {
+                            
+                        $upload_data = $this->upload->data();
+                        $edit['img'] = $upload_data['file_name'];
+
+                        $config['source_image']	= $upload_data['full_path']; 
+                        $config['new_image'] = APPPATH . '../images/articles/thumbs';
+                        $config['maintain_ratio'] = TRUE; 
+                        $config['width']	= 48; 
+                        $config['height']	= 48;
+
+                        $this->load->library('image_lib', $config);
+
+                        $this->image_lib->resize();
+                    }
+                }
+/*-------------------------------------*/
                 $edit['id'] = $this->input->post('id');
                 $edit['title'] = $this->input->post('title');
                 $edit['title_url'] = $this->input->post('title_url');
@@ -181,14 +215,14 @@ class Admin extends CI_Controller {
                 $edit['email'] = $this->input->post('email');
                 $edit['avatar'] = $this->input->post('avatar');
                 
-                /*Deleting of empty elements of array for adding category to database*/
+/*Deleting of empty elements of array for adding category to database*/
                 foreach($edit as $key => $val) {
                     
                     if( ! $edit[$key]) {
                         unset($edit[$key]);
                     }
                 }
-                /*-------------------------------------------------------------*/
+/*-------------------------------------------------------------*/
                 $this->admin_model->edit_info($page, $id, $edit);
                 redirect(base_url() . 'index.php/admin');
             }
@@ -235,14 +269,14 @@ class Admin extends CI_Controller {
 
                 $id = $this->input->post('id');
                 $this->admin_model->del_info($page, $id);
-                redirect(base_url() . 'index.php/admin');
+                redirect(base_url() . 'index.php/admin/del/' . $page);
             }
             else {
                 
                 if($page == 'comments') $name = 'del/comments';
                 else $name = 'del/dellist';
                 
-                /*Output of titles (Edit list of article(category) in header of editlist_view.*/
+/*Output of titles (Edit list of article(category) in header of editlist_view.*/
             
                 if($page == 'articles') {
                     $data['info'] = 'статей';
@@ -250,7 +284,7 @@ class Admin extends CI_Controller {
                 if($page == 'categories') {
                     $data['info'] = 'категорий';
                 }
-                /*------------------------------------*/
+/*------------------------------------*/
                 
                 $this->template->admin_view($name, $data);
             }

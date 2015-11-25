@@ -2,12 +2,15 @@
 
   <div class="starter-template">
     <h1>Редактирование статьи</h1><br />
-    <form method="POST" action="">
+    <form method="POST" action="" enctype="multipart/form-data">
         <label>Название статьи:</label><div class="error"><?= form_error('title'); ?></div>
         <input class="form-control" type="text" name="title" value="<?= $info_about_data['title']; ?>"><br /><br />
         
         <label>id статьи:</label><div class="error"><?= form_error('id'); ?></div>
         <input class="form-control" type="text" name="id" value="<?= $info_about_data['id']; ?>"><br /><br />
+        
+        <label>Главная картинка для статьи:</label>
+        <input class="input_file" type="file" name="userfile"><br/>
         
         <input type="hidden" name="date" value="<?= date('Y-m-d'); ?>" />
         
