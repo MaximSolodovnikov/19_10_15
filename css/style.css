@@ -33,6 +33,11 @@ body {
 }
 /*-----Заголовок для конкретной статьи-------*/
 
+.no_article {
+    
+    height: 783px;
+}
+
 .title_particular_article {
 	font-size: 1.3em;
 	font-weight: bold;

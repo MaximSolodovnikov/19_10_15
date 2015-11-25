@@ -17,6 +17,21 @@ class Articles_model extends CI_Model {
         return $query->result_array();
     }
     
+    /*Check for article*/
+    function check_for_article($cat) {
+        
+        $this->db->where('category', $cat);
+        $query = $this->db->get('articles');
+        if($query->num_rows() > 0) {
+            
+            return TRUE;
+        }
+        else {
+            
+            return FALSE;
+        }
+    }
+    
     /*Output of one article*/
     function get_article($id) {
         

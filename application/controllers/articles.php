@@ -58,12 +58,13 @@ class Articles extends CI_Controller {
         $data['user'] = $this->session->userdata('user');
         $data['user_info']['status'] = $this->session->userdata('status');
         $data['user_info']['avatar'] = $this->session->userdata('avatar');
-        $name = 'articles';
-        
-        if($name != 'articles') {
+
+        if( ! $this->articles_model->check_for_article($cat)) {
             
             $name = 'no_articles';
+            $this->template->get_view($data, $name);
         }
+        $name = 'articles';
         $this->template->get_view($data, $name);
     }
 }
