@@ -35,7 +35,7 @@
 			
 			</b>&nbsp;&nbsp;&nbsp;&nbsp;
             </p>
-            <a href="<?= base_url(); ?>"class="title_logo"><span class="title">Катя Катерина - </span><br /><span class="title_sub_logo">нарисована картина</span></a>
+            <a href="<?= base_url(); ?>"class="title_logo"><span class="title">Мой сайт</span><br /><span class="title_sub_logo">Codeigniter</span></a>
         </div>
     </div>
 </div>

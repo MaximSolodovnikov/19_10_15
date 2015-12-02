@@ -1,4 +1,5 @@
 <div class="left">
+    
     <?php foreach($articles as $item):?>
         <div class="left_articles">
             <a class="title_article" href="<?=base_url();?>index.php/article/view/<?php echo $item['id'];?>"><?php echo $item['title'];?></a>
