@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Articles_model extends CI_Model {
+class articles_model extends CI_Model {
 	
     function get_all_articles($num, $offset) {
 
@@ -46,12 +46,15 @@ class Articles_model extends CI_Model {
         $this->db->insert('comments', $add);
     }
     
-    /*Output of comments*/
-    function get_comments($id) {
+    function get_comments($article_id) {
         
-        $this->db->order_by('id', 'desc');
-        $this->db->where('id', $id);
-        $query = $this->db->get('comments');
+        $this->db->order_by('comments.id', 'desc');
+        $this->db->select('*');
+        $this->db->from('comments');
+        $this->db->join('users', 'users.id = comments.username_id', 'left');
+        $this->db->where('comments.article_id', $article_id);
+
+        $query = $this->db->get();
         return $query->result_array();
     }
 }

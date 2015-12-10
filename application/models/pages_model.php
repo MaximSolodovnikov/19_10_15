@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Pages_model extends CI_Model {
+class pages_model extends CI_Model {
 	
     function get_menu() {
 

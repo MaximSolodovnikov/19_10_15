@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Cabinet_model extends CI_Model {
+class cabinet_model extends CI_Model {
     
     function old_pswd_check($user) {
         

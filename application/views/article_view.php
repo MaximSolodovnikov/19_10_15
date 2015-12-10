@@ -4,36 +4,36 @@
         <p class="title_particular_article" ><?php echo $page_info['title']; ?></p>
         <p class="date_article">Дата: <?php echo $page_info['date']; ?></p>
         <a href="<?=base_url();?>images/articles/<?php echo $page_info['img']; ?>" data-lightbox="image"><img src="<?=base_url();?>images/articles/<?php echo $page_info['img']; ?>" alt="" /></a>
-        <p><?php echo $page_info['text']; ?></p>
+        <p><?php echo wordwrap($page_info['text'], 200, "\n"); ?></p>
     </div>
     <script src="<?=base_url();?>js/lightbox.js"></script>
 <!-------------------Comments------------------------------------------------->  
 <a name="c"></a>
     <div class="left_articles">
         <p class="title_comment" >Комментарии</p>
-
     <?php if($user) {?>
             
 <!-------------------Output of comments--------------------------------------->        
 
-    <?php foreach($comments as $item): ?>
+<?php foreach($comments as $item): ?>
         <div class="left_articles">
-            <span class="author_comment"><?=$item['author'];?></span>
+            <span class="author_comment"><?=$item['username'];?></span>
             <div class="line"></div>
-            <img class="avatar" src="<?=base_url();?>images/avatars/thumbs/<?=$user_info['avatar'];?>" alt="Avatar">
+            <img class="avatar" src="<?=base_url();?>images/avatars/thumbs/<?=$item['avatar'];?>" alt="avatar">
             <p><?=$item['comment'];?></p>
             <div class="line"></div>
             <p class="date_article">Дата: <?=$item['date'];?>&nbsp;&nbsp; |&nbsp;&nbsp; Время: <?=$item['time'];?></p>
         </div>
-    <?php endforeach; ?>
+<?php endforeach; ?>
 
+<!-------------------Form for comments--------------------------------------->
+<hr />
 <a name="f"></a>
     <p class="author_comment" ><?php echo $user; ?></p>
         <form method="POST" action="<?=base_url();?>index.php/article/view/<?php echo $page_info['id']; ?>#f">
-            <input type="hidden" name="author" value="<?php echo $user; ?>">
+            <input type="hidden" name="username_id" value="<?= $user_info['id']; ?>">
             <input type="hidden" name="avatar" value="<?= $user_info['avatar']; ?>">
-            <input type="hidden" name="id" value="<?php echo $page_info['id']; ?>">
-            <input type="hidden" name="category" value="<?php echo $page_info['category']; ?>">
+            <input type="hidden" name="article_id" value="<?php echo $page_info['id']; ?>">
             <label>Комментарий</label><div class="error"><?=form_error('comment_text');?></div>
             <textarea rows="5" name="comment_text" placeholder="Поле для комментариев"><?=set_value('comment_text');?></textarea><br />
             <label>Введите символы с картинки</label><div class="error"><?=form_error('captcha');?><?=$error;?></div>
@@ -41,7 +41,7 @@
             <input type="submit" class="btn btn-info" name="add_comment" value="Комментировать">
         </form>
 
-<!----------------------------------------------------------------------------->   
+<!--------------------------------------------------------------------------->   
     
     <?php } 
         else { ?>
@@ -51,7 +51,3 @@
         <?php } ?>
     </div>
 </div>
-
-
-        
-

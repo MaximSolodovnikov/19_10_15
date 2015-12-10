@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Rules_model extends CI_Model {
+class rules_model extends CI_Model {
 	
     public $comments_rules = array
         (
@@ -132,12 +132,7 @@ class Rules_model extends CI_Model {
                     'rules' => 'required'
                 ),
        
-            array
-                (
-                    'field' => 'id',
-                    'label' => 'id',
-                    'rules' => 'required'
-                ),
+            
             array
                 (
                     'field' => 'text',

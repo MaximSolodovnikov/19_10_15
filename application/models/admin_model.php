@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Admin_model extends CI_Model {
+class admin_model extends CI_Model {
     
     /*Checking admin to login*/
     function check_admin_for_authorization($user, $pswd) {
