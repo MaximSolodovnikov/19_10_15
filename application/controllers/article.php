@@ -9,15 +9,16 @@ class Article extends CI_Controller {
     }
     
     /*View of one article*/
-    function view($id) {
+    function view($title) {
         
         $data['menu'] = $this->pages_model->get_menu();
-        $data['page_info'] = $this->articles_model->get_article($id);
+        $data['page_info'] = $this->articles_model->get_article($title);
         $data['categories'] = $this->pages_model->get_cat();
         $data['latest_articles'] = $this->pages_model->get_last_articles();
-        $data['comments'] = $this->articles_model->get_comments($id);
+        $data['comments'] = $this->articles_model->get_comments($title);
         $data['user'] = $this->session->userdata('user');
         $data['user_info']['avatar'] = $this->session->userdata('avatar');
+
         $data['error'] = '';
         
         if(empty($data['page_info'])) {
@@ -36,15 +37,15 @@ class Article extends CI_Controller {
                 
                 if($captcha == $this->session->userdata('captcha')) {
                     
-                    $comment_data['author'] = $this->input->post('author');
-                    $comment_data['comment'] = $this->input->post('comment_text');
-                    $comment_data['avatar'] = $this->input->post('avatar');
-                    $comment_data['id'] = $this->input->post('id');
+                    /*$comment_data['username'] = $this->input->post('author');*/
+                    $comment_data['comment'] = $this->input->post('comment_text');  
+                    /*$comment_data['avatar'] = $this->input->post('avatar');*/
+                    $comment_data['article_id'] = $this->input->post('article_id');
+                    $comment_data['title_url'] = $this->input->post('title_url');
                     $comment_data['date'] = date('Y-m-d');
                     $comment_data['time'] = date('H:i:s');
-                    $comment_data['category'] = $this->input->post('category');
                     $this->articles_model->add_comment($comment_data);
-                    redirect(base_url() . 'index.php/article/view/' . $id . '#c');
+                    redirect(base_url() . 'index.php/article/view/' . $title . '#c');
                 }
                 else {
                     $data['error'] = "Символы с картинки введены не верно";

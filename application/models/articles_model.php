@@ -33,9 +33,9 @@ class Articles_model extends CI_Model {
     }
     
     /*Output of one article*/
-    function get_article($id) {
+    function get_article($title) {
         
-        $this->db->where('id', $id);
+        $this->db->where('title_url', $title);
         $query = $this->db->get('articles');
         return $query->row_array();
     }
@@ -47,11 +47,35 @@ class Articles_model extends CI_Model {
     }
     
     /*Output of comments*/
-    function get_comments($id) {
+    /*function get_comments($title) {
         
         $this->db->order_by('id', 'desc');
-        $this->db->where('id', $id);
+        $this->db->where('title_url', $title);
         $query = $this->db->get('comments');
         return $query->result_array();
+    }*/
+    
+    /*When changed avatar, it will change to an already posted comments*/
+    /*function new_avatar($avatar) {
+        
+        $this->db->select('*');
+        $this->db->from('users');
+        $this->db->join('comments', 'users.avatar = comments.avatar');
+        $this->db->where('users.avatar', $avatar);
+        $query = $this->db->get();
+        return $query->row_array();
+    }*/
+    
+    /*Output of comments*/
+    function get_comments($article_id) {
+        
+        $this->db->select('*');
+        $this->db->from('comments');
+        $this->db->join('user', 'comments.author_id = users.id');
+        $this->db->where('comments.article_id', $article_id);
+
+        $query = $this->db->get();
+        return $query->result_array();
     }
+
 }
