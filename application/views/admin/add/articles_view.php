@@ -6,8 +6,8 @@
         <label>Название статьи:</label><div class="error"><?= form_error('title'); ?></div>
         <input class="form-control" type="text" name="title" value="<?= set_value('title'); ?>"><br /><br />
         
-        <label>id статьи:</label><div class="error"><?= form_error('id'); ?></div>
-        <input class="form-control" type="text" name="id" value="<?= set_value('id'); ?>"><br /><br />
+<!--        <label>id статьи:</label><div class="error"><?= form_error('id'); ?></div>
+        <input class="form-control" type="text" name="id" value="<?= set_value('id'); ?>"><br /><br />-->
         
         <label>Главная картинка для статьи:</label>
         <input class="input_file" type="file" name="userfile"><br/>

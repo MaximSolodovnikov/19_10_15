@@ -1,6 +1,6 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Article extends CI_Controller {
+class article extends CI_Controller {
 
     function __construct() {
         parent::__construct();
@@ -18,7 +18,8 @@ class Article extends CI_Controller {
         $data['comments'] = $this->articles_model->get_comments($title);
         $data['user'] = $this->session->userdata('user');
         $data['user_info']['avatar'] = $this->session->userdata('avatar');
-
+        $data['user_info']['id'] = $this->session->userdata('id');
+		
         $data['error'] = '';
         
         if(empty($data['page_info'])) {
@@ -36,14 +37,13 @@ class Article extends CI_Controller {
                 $captcha = $this->input->post('captcha');
                 
                 if($captcha == $this->session->userdata('captcha')) {
-                    
-                    /*$comment_data['username'] = $this->input->post('author');*/
-                    $comment_data['comment'] = $this->input->post('comment_text');  
-                    /*$comment_data['avatar'] = $this->input->post('avatar');*/
-                    $comment_data['article_id'] = $this->input->post('article_id');
-                    $comment_data['title_url'] = $this->input->post('title_url');
+
+                    $comment_data['username_id'] = $this->input->post('username_id');
+                    $comment_data['comment'] = $this->input->post('comment_text');
                     $comment_data['date'] = date('Y-m-d');
                     $comment_data['time'] = date('H:i:s');
+                    $comment_data['article_id'] = $this->input->post('article_id');
+
                     $this->articles_model->add_comment($comment_data);
                     redirect(base_url() . 'index.php/article/view/' . $title . '#c');
                 }

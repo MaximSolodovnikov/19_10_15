@@ -1,5 +1,5 @@
 <div id="admin_container" class="container">
-
+<?php print_r($info_about_data); ?>
   <div class="starter-template">
     <h1>Редактирование статьи</h1><br />
     <form method="POST" action="" enctype="multipart/form-data">

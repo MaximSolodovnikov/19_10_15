@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Articles_model extends CI_Model {
+class articles_model extends CI_Model {
 	
     function get_all_articles($num, $offset) {
 
@@ -46,26 +46,7 @@ class Articles_model extends CI_Model {
         $this->db->insert('comments', $add);
     }
     
-    /*Output of comments*/
-    /*function get_comments($title) {
-        
-        $this->db->order_by('id', 'desc');
-        $this->db->where('title_url', $title);
-        $query = $this->db->get('comments');
-        return $query->result_array();
-    }*/
-    
-    /*When changed avatar, it will change to an already posted comments*/
-    /*function new_avatar($avatar) {
-        
-        $this->db->select('*');
-        $this->db->from('users');
-        $this->db->join('comments', 'users.avatar = comments.avatar');
-        $this->db->where('users.avatar', $avatar);
-        $query = $this->db->get();
-        return $query->row_array();
-    }*/
-    
+
     /*Output of comments*/
     function get_comments($article_id) {
         

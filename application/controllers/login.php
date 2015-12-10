@@ -1,6 +1,6 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Login extends CI_Controller {
+class login extends CI_Controller {
     
     function __construct() {
         parent::__construct();
@@ -27,6 +27,7 @@ class Login extends CI_Controller {
                 
                 $data['user_info'] = $this->login_model->user_info($username);
                 $ses_data = array(
+                    'id' => $data['user_info']['id'], /* tempjrary */
                     'user' => $username,
                     'avatar' => $data['user_info']['avatar']
                 );
