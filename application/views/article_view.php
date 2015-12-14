@@ -11,7 +11,7 @@
 <a name="c"></a>
     <div class="left_articles">
         <p class="title_comment" >Комментарии</p>
-    <?php if($user) {?>
+
             
 <!-------------------Output of comments--------------------------------------->        
 
@@ -19,12 +19,14 @@
         <div class="left_articles">
             <span class="author_comment"><?=$item['username'];?></span>
             <div class="line"></div>
-            <img class="avatar" src="<?=base_url();?>images/avatars/thumbs/<?=$item['avatar'];?>" alt="avatar">
+            <img style="width: 48px;" src="<?=base_url();?>images/avatars/thumbs/<?=$item['avatar'];?>" alt="avatar">
             <p><?=$item['comment'];?></p>
             <div class="line"></div>
             <p class="date_article">Дата: <?=$item['date'];?>&nbsp;&nbsp; |&nbsp;&nbsp; Время: <?=$item['time'];?></p>
         </div>
 <?php endforeach; ?>
+
+<?php if($user) {?>
 
 <!-------------------Form for comments--------------------------------------->
 <hr />

@@ -11,11 +11,12 @@
           </tr>
         </thead>
         <tbody>
+           
             <?php foreach($edit as $item): ?>
         
         <form method="POST" action="">
             <tr>
-                <td><?= $item['author']; ?></td>
+                <td><?= $item['username']; ?></td>
                 <td><?= $item['date']; ?> / <?= $item['time']; ?></td>
                 <td><?= $item['comment']; ?></td>
                

@@ -1,6 +1,6 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
-class contacts extends CI_Controller {
+class Contacts extends CI_Controller {
 
     function index() {
         

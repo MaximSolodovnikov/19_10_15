@@ -1,7 +1,7 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 require_once 'config/config.php';
 
-class admin extends CI_Controller {
+class Admin extends CI_Controller {
     
     function index() {
 
@@ -99,7 +99,7 @@ class admin extends CI_Controller {
 /*-------------------------------------*/
                 /*$add['id'] = $this->input->post('id');*/
                 $add['title'] = $this->input->post('title');
-                /*$add['title_url'] = $this->input->post('title_url');*/
+                $add['title_url'] = $this->input->post('title_url');
                 $add['date'] = $this->input->post('date');
                 $add['text'] = $this->input->post('text');
                 $add['keywords'] = $this->input->post('keywords');
@@ -202,7 +202,7 @@ class admin extends CI_Controller {
 /*-------------------------------------*/
                 /*$edit['id'] = $this->input->post('id');*/
                 $edit['title'] = $this->input->post('title');
-                /*$edit['title_url'] = $this->input->post('title_url');*/
+                $edit['title_url'] = $this->input->post('title_url');
                 $edit['date'] = $this->input->post('date');
                 $edit['text'] = $this->input->post('text');
                 $edit['keywords'] = $this->input->post('keywords');
