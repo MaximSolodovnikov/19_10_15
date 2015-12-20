@@ -42,9 +42,22 @@ class admin_model extends CI_Model {
     /*Displays list of articles or categories to editlist_view*/
     function get_editlist($page) {
         
-        $this->db->order_by('id', 'desc');
-        $query = $this->db->get($page);
-        return $query->result_array();
+        if($page != 'comments') {
+            
+            $this->db->order_by('id', 'desc');
+            $query = $this->db->get($page);
+            return $query->result_array();
+        }
+        else {
+            
+            $this->db->select('*');
+            $this->db->from('users');
+            $this->db->join('comments', 'comments.username_id = users.id', 'left');
+            /*$this->db->where('users.id', 'comments.username_id');*/
+
+            $query = $this->db->get();
+            return $query->result_array();
+        }
     }
     
     /*Output specific info about article or category*/

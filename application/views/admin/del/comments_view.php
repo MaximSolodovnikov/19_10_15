@@ -11,11 +11,12 @@
           </tr>
         </thead>
         <tbody>
-            <?php foreach($edit as $item): ?>
+        
+    <?php foreach($edit as $item): ?>
         
         <form method="POST" action="">
             <tr>
-                <td><?= $item['author']; ?></td>
+                <td><?= $item['username']; ?></td>
                 <td><?= $item['date']; ?> / <?= $item['time']; ?></td>
                 <td><?= $item['comment']; ?></td>
                
@@ -24,7 +25,7 @@
             </tr>
         </form>
                 
-            <?php endforeach; ?>
+    <?php endforeach; ?>
         </tbody>
     </table>
 </div>

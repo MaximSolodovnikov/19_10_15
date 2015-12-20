@@ -13,6 +13,7 @@
         <input class="input_file" type="file" name="userfile"><br/>
     
         <input type="hidden" name="date" value="<?= date('Y-m-d'); ?>" />
+<!--        <input type="hidden" name="id" value="" />-->
         
         <label>Текст статьи:</label><div class="error"><?= form_error('text'); ?></div>
         <textarea class="form-control" rows="3" name="text"><?= set_value('text'); ?></textarea><br /><br />

@@ -54,7 +54,7 @@ class admin extends CI_Controller {
         }
     }
     
-/*$page - parameter that we want to add (article, category or page)*/
+/*$page - parameter that we want to add (article, category)*/
     function add($page) {
         
         $data['user'] = $this->session->userdata('user');
@@ -97,7 +97,7 @@ class admin extends CI_Controller {
                     }
                 }
 /*-------------------------------------*/
-                /*$add['id'] = $this->input->post('id');*/
+                $add['id'] = $this->input->post('id');
                 $add['title'] = $this->input->post('title');
                 /*$add['title_url'] = $this->input->post('title_url');*/
                 $add['date'] = $this->input->post('date');

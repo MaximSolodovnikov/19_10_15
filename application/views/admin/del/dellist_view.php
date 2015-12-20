@@ -9,7 +9,8 @@
           </tr>
         </thead>
         <tbody>
-            <?php foreach($edit as $item): ?>
+            
+    <?php foreach($edit as $item): ?>
         
         <form method="POST" action="">
             <tr>
@@ -19,7 +20,7 @@
             <input type="hidden" name="id" value="<?= $item['id']; ?>" />
         </form>
                 
-            <?php endforeach; ?>
+    <?php endforeach; ?>
         </tbody>
     </table>
 </div>

@@ -1,5 +1,7 @@
 <div class="left">
     <div class="left_articles">
-        <p class="no_article">В данном разделе нет статей.</p>
+        <div class="no_article">
+            <p class="alert alert-dismissible alert-success">В данном разделе нет статей.</p>
+        </div>
     </div>
 </div>

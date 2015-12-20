@@ -35,7 +35,7 @@ class articles_model extends CI_Model {
     /*Output of one article*/
     function get_article($title) {
         
-        $this->db->where('title_url', $title);
+        $this->db->where('id', $title);
         $query = $this->db->get('articles');
         return $query->row_array();
     }
@@ -52,7 +52,7 @@ class articles_model extends CI_Model {
         
         $this->db->select('*');
         $this->db->from('comments');
-        $this->db->join('user', 'comments.author_id = users.id');
+        $this->db->join('users', 'users.id = comments.username_id', 'left');
         $this->db->where('comments.article_id', $article_id);
 
         $query = $this->db->get();

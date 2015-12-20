@@ -62,7 +62,11 @@ class articles extends CI_Controller {
             $name = 'no_articles';
             $this->template->get_view($data, $name);
         }
-        $name = 'articles';
-        $this->template->get_view($data, $name);
+        else {
+            
+            $name = 'articles';
+            $this->template->get_view($data, $name);
+        }
+
     }
 }
