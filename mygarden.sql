@@ -3,7 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: 127.0.0.1
+
 -- Время создания: Дек 20 2015 г., 18:18
+
 -- Версия сервера: 5.5.25
 -- Версия PHP: 5.3.13
 
@@ -36,7 +38,11 @@ CREATE TABLE IF NOT EXISTS `articles` (
   `keywords` text NOT NULL,
   `category` varchar(150) NOT NULL,
   PRIMARY KEY (`id`)
+<<<<<<< HEAD
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=14 ;
+=======
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
+>>>>>>> 9f1bc028fc0b03f412faa2fb72bdd738402dc62d
 
 --
 -- Дамп данных таблицы `articles`
@@ -99,7 +105,19 @@ CREATE TABLE IF NOT EXISTS `comments` (
   `time` time NOT NULL,
   `article_id` tinyint(4) NOT NULL,
   PRIMARY KEY (`id`)
+<<<<<<< HEAD
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
+=======
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=12 ;
+
+--
+-- Дамп данных таблицы `comments`
+--
+
+INSERT INTO `comments` (`id`, `username_id`, `comment`, `date`, `time`, `article_id`) VALUES
+(10, 52, 'com_1', '2015-12-14', '11:35:31', 10),
+(11, 52, 'com_2', '2015-12-14', '11:35:52', 10);
+>>>>>>> 9f1bc028fc0b03f412faa2fb72bdd738402dc62d
 
 -- --------------------------------------------------------
 
@@ -213,7 +231,11 @@ CREATE TABLE IF NOT EXISTS `users` (
   `avatar` varchar(100) NOT NULL,
   `status` varchar(20) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
+<<<<<<< HEAD
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=51 ;
+=======
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=53 ;
+>>>>>>> 9f1bc028fc0b03f412faa2fb72bdd738402dc62d
 
 --
 -- Дамп данных таблицы `users`
@@ -221,6 +243,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 
 INSERT INTO `users` (`id`, `username`, `password`, `email`, `avatar`, `status`) VALUES
 (43, 'admin', '90b9aa7e25f80cf4f64e990b78a9fc5ebd6cecad', 'admin@ukr.net', '393e2bccd8c721f6e0db2543bace1563.jpg', '0'),
+<<<<<<< HEAD
 (44, 'admin_2', '404c050827257663efaffc0ce58bc10b6c467621', 'admin_2@ukr.net', '262fa8414d0546ab0262043cfaf9f536.jpg', '0'),
 (45, 'dada', 'b5df59717c774d4a7b5403ed00869da175706ce8', 'dada@ukr.net', '6bde19bc0f2c5ca121da84fdc02c2f55.gif', '0'),
 (46, 'mr.Max', '63982e54a7aeb0d89910475ba6dbd3ca6dd4e5a1', 'max@ukr.net', '65dde28cd345826876824fd167d1f75e.png', '0'),
@@ -228,6 +251,9 @@ INSERT INTO `users` (`id`, `username`, `password`, `email`, `avatar`, `status`) 
 (48, 'hujlo', '894dfa3bf5daa34f22305e87aea6ea6fc0e98002', 'hujlo@tvar.da', '9e72f8cd5b00745f995fe696e51c2d46.jpg', '0'),
 (49, 'alabala', 'dc21bb4eb25ffb52036a5dc7ef6a22f3a5bcfd84', 'alabala@ukr.net', 'bab0760dfdb2f2afbda111c6518bd1ba.png', '0'),
 (50, 'aladin', '77758731a510b6674ca184117bfdc73e86c05771', 'new_email@ukr.net', '80b993eaabfa559d14a4f54eae6f2d0e.jpg', '0');
+=======
+(52, '123123', '040bd08a4290267535cd247b8ba2eca129d9fe9f', '123123@ukr.net', '72349eba13050d6fba802ae480da93cb.gif', '0');
+>>>>>>> 9f1bc028fc0b03f412faa2fb72bdd738402dc62d
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

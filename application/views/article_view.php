@@ -11,8 +11,7 @@
 <a name="c"></a>
     <div class="left_articles">
         <p class="title_comment" >Комментарии</p>
-    
-            
+          
 <!-------------------Output of comments--------------------------------------->        
 
 <?php foreach($comments as $item): ?>

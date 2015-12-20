@@ -49,11 +49,11 @@ class admin_model extends CI_Model {
             return $query->result_array();
         }
         else {
-            
+
+            $this->db->order_by('comments.id', 'desc');
             $this->db->select('*');
             $this->db->from('users');
             $this->db->join('comments', 'comments.username_id = users.id', 'left');
-            /*$this->db->where('users.id', 'comments.username_id');*/
 
             $query = $this->db->get();
             return $query->result_array();

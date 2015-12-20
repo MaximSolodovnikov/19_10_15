@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://www.netbeans.org/ns/project/1">
     <type>org.netbeans.modules.php.project</type>
@@ -7,3 +8,14 @@
         </data>
     </configuration>
 </project>
+=======
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://www.netbeans.org/ns/project/1">
+    <type>org.netbeans.modules.php.project</type>
+    <configuration>
+        <data xmlns="http://www.netbeans.org/ns/php-project/1">
+            <name>cimysite</name>
+        </data>
+    </configuration>
+</project>
+>>>>>>> 9f1bc028fc0b03f412faa2fb72bdd738402dc62d
