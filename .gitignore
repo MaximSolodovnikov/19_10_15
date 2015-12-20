@@ -1,1 +1,10 @@
 /nbproject/private/
+
+# Ignore  images of captcha
+/images/captcha/
+
+# Ignore  images of avatars
+/images/avatars/
+
+# Ignore  images of avatars
+/images/articles/
